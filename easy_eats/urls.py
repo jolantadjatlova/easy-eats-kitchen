@@ -19,6 +19,10 @@ from django.urls import path
 from recipes import views as recipes_views
 
 urlpatterns = [
-     path('admin', admin.site.urls),
-     path('', recipes_views.home, name='home'),  
+    path('admin/', admin.site.urls),  
+    path('', recipes_views.home, name='home'),
+    path('recipes/<slug:category_slug>/', 
+         recipes_views.recipes_by_category,
+         name='recipes_by_category'),
 ]
+

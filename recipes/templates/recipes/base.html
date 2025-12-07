@@ -56,7 +56,7 @@
             <a class="navbar-brand d-flex align-items-center" href="#">
     <img src="{% static 'images/easy_eats_logo.png' %}"
          alt="Easy Eats Kitchen logo"
-         height="60"
+         height="65"
          class="me-2">
 </a>
             <button class="navbar-toggler" type="button"
@@ -125,43 +125,55 @@
             <div class="row justify-content-center g-4">
                 <!-- 15 min meals -->
                 <div class="col-6 col-md-3">
-                    <div class="d-flex flex-column align-items-center">
-                        <img src="{% static 'images/category-15min.png' %}"
-                             alt="15 min meals"
-                             class="img-fluid category-img rounded-circle mb-2">
-                         <span class="category-name">15 min meals</span>
-                    </div>
-                </div>
+    <a href="{% url 'recipes_by_category' '15-min-meals' %}"
+       class="text-decoration-none text-dark">
+        <div class="d-flex flex-column align-items-center">
+            <img src="{% static 'images/category-15min.png' %}"
+                 alt="15 min meals"
+                 class="img-fluid category-img rounded-circle mb-2">
+            <span class="category-name">15 min meals</span>
+        </div>
+    </a>
+</div>
 
                 <!-- Meat -->
                 <div class="col-6 col-md-3">
-                    <div class="d-flex flex-column align-items-center">
-                        <img src="{% static 'images/category-meat.png' %}"
-                             alt="Meat"
-                             class="img-fluid category-img rounded-circle mb-2">
-                        <span class="category-name">Meat</span>
-                    </div>
+            <a href="{% url 'recipes_by_category' 'meat' %}"
+               class="text-decoration-none text-dark">
+                <div class="d-flex flex-column align-items-center">
+                    <img src="{% static 'images/category-meat.png' %}"
+                         alt="Meat"
+                         class="img-fluid category-img rounded-circle mb-2">
+                    <span class="category-name">Meat</span>
                 </div>
-
+            </a>
+        </div>
                 <!-- Fish -->
-                <div class="col-6 col-md-3">
-                    <div class="d-flex flex-column align-items-center">
-                        <img src="{% static 'images/category-fish.png' %}"
-                             alt="Fish"
-                             class="img-fluid category-img rounded-circle mb-2">
-                        <span class="category-name">Fish</span>
-                    </div>
+                  <div class="col-6 col-md-3">
+            <a href="{% url 'recipes_by_category' 'fish' %}"
+               class="text-decoration-none text-dark">
+                <div class="d-flex flex-column align-items-center">
+                    <img src="{% static 'images/category-fish.png' %}"
+                         alt="Fish"
+                         class="img-fluid category-img rounded-circle mb-2">
+                    <span class="category-name">Fish</span>
                 </div>
+            </a>
+        </div>
+
 
                 <!-- Vegetarian -->
                 <div class="col-6 col-md-3">
-                    <div class="d-flex flex-column align-items-center">
-                        <img src="{% static 'images/category-veg.png' %}"
-                             alt="Vegetarian"
-                             class="img-fluid category-img rounded-circle mb-2">
-                         <span class="category-name">Vegetarian</span>
-                    </div>
+            <a href="{% url 'recipes_by_category' 'vegetarian' %}"
+               class="text-decoration-none text-dark">
+                <div class="d-flex flex-column align-items-center">
+                    <img src="{% static 'images/category-veg.png' %}"
+                         alt="Vegetarian"
+                         class="img-fluid category-img rounded-circle mb-2">
+                    <span class="category-name">Vegetarian</span>
                 </div>
+            </a>
+        </div>
             </div>
         </section>
 
