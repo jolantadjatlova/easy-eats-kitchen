@@ -91,20 +91,20 @@
     <main class="flex-grow-1">
     <div class="container text-center my-5">
 
+      
         <!-- Search bar -->
         <form class="d-flex justify-content-center mb-4" role="search" style="max-width: 600px; margin: 0 auto;">
             <div class="input-group">
-
                 <input type="text" class="form-control form-control-lg"
                        placeholder="Search recipes">
-
                 <button class="btn btn-lg" type="submit"
                         style="background-color: #3A2F29; color: #F5F1EB; border: none;">
                     Search
                 </button>
             </div>
         </form>
-  <!-- Welcome card -->
+
+        <!-- Welcome card -->
         <div class="d-flex justify-content-center">
             <div class="mt-3 p-4 text-start"
                  style="max-width: 520px; background-color: rgba(245, 241, 235, 0.9); border-radius: 20px;">
@@ -117,6 +117,55 @@
                 </p>
             </div>
         </div>
+
+        <!-- Category section -->
+        <section class="mt-5">
+            <h2 class="h4 mb-4">Browse by category</h2>
+
+            <div class="row justify-content-center g-4">
+                <!-- 15 min meals -->
+                <div class="col-6 col-md-3">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="{% static 'images/category-15min.png' %}"
+                             alt="15 min meals"
+                             class="img-fluid category-img rounded-circle mb-2">
+                         <span class="category-name">15 min meals</span>
+                    </div>
+                </div>
+
+                <!-- Meat -->
+                <div class="col-6 col-md-3">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="{% static 'images/category-meat.png' %}"
+                             alt="Meat"
+                             class="img-fluid category-img rounded-circle mb-2">
+                        <span class="category-name">Meat</span>
+                    </div>
+                </div>
+
+                <!-- Fish -->
+                <div class="col-6 col-md-3">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="{% static 'images/category-fish.png' %}"
+                             alt="Fish"
+                             class="img-fluid category-img rounded-circle mb-2">
+                        <span class="category-name">Fish</span>
+                    </div>
+                </div>
+
+                <!-- Vegetarian -->
+                <div class="col-6 col-md-3">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="{% static 'images/category-veg.png' %}"
+                             alt="Vegetarian"
+                             class="img-fluid category-img rounded-circle mb-2">
+                         <span class="category-name">Vegetarian</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>  <!-- end .container -->
 </main>
 
        <!-- Footer -->
