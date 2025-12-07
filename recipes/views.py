@@ -1,6 +1,12 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+
 
 # Create your views here.
-def index(request):
-    return HttpResponse("Welcome to Easy Eats Kitchen!")
+def home(request):
+    """
+    Home page view for Easy Eats Kitchen.
+    Renders the main landing page using the base template.
+    
+    """
+
+    return render(request, 'recipes/base.html')
