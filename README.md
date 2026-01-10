@@ -130,6 +130,17 @@ The application focuses on clean UX design, accessibility, and secure authentica
 
 ### User Goals
 
+#### Public Users
+- To browse and view recipes without needing to create an account.
+- To search and filter recipes in order to quickly find suitable meal ideas.
+- To explore recipe content and read comments before deciding to register.
+
+#### Authenticated Users
+- To create an account and log in securely to access additional features.
+- To create, edit, and manage personal recipes in one place.
+- To interact with other users by leaving comments and sharing cooking tips.
+- To receive clear feedback when performing actions such as creating, editing, or deleting content.
+
 
 
 [Back to contents](#contents)
@@ -142,8 +153,6 @@ The application focuses on clean UX design, accessibility, and secure authentica
 - As a public user, I want to browse a list of recipes and view individual recipe details so that I can find inspiration and cook a meal.  
 - As a public user, I want to filter recipes by category so that I can quickly find recipes that suit my preferences.  
 - As a public user, I want to search for recipes by keyword so that I can locate specific dishes quickly.
-
----
 
 #### Authenticated Users
 - As an authenticated user, I want to create an account so that I can create and manage my own recipes.  
