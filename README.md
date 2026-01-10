@@ -332,6 +332,8 @@ GitHub Issues were used to record user stories, development tasks and potential 
 
 Each issue included clear acceptance criteria and was linked to the relevant stage of development, supporting traceability and structured progress.
 
+![GitHub Issues](docs/easy-eats-github-issues.png)
+
 #### MoSCoW Prioritization
 
 The MoSCoW prioritisation method was used to classify tasks as Must Have, Should Have, Could Have, or Won’t Have. This helped ensure that essential functionality was delivered within the project timeframe while allowing flexibility for future enhancements.
