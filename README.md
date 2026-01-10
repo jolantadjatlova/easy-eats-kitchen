@@ -92,6 +92,25 @@ The application focuses on clean UX design, accessibility, and secure authentica
 
 #### 1. Strategy
 
+##### Purpose
+- Provide a simple and welcoming platform for users to discover and share recipes.
+- Allow users to quickly find meal ideas based on time, category, or personal preferences.
+- Encourage user engagement through recipe creation and personal recipe management.
+- Offer a visually appealing and easy-to-use interface that supports stress-free cooking inspiration.
+
+##### Primary User Needs
+- Easily browse and view recipes without needing to create an account.
+- Quickly search and filter recipes to find suitable meal ideas.
+- Access clear and readable recipe information, including ingredients and method steps.
+- Create an account to save, manage, and share personal recipes.
+- Access the website seamlessly across mobile, tablet, and desktop devices.
+
+##### Project Goals
+- Build a full-stack Django application demonstrating CRUD functionality.
+- Implement user authentication to support personalised features.
+- Apply UX best practices, including intuitive navigation and responsive design.
+- Use consistent styling and clear typography to support readability and usability.
+
 
 [Back to contents](#contents)
 
