@@ -118,6 +118,24 @@ The application focuses on clean UX design, accessibility, and secure authentica
 
 #### 2. Scope
 
+##### Functional Requirements
+- Users can browse a list of recipes without needing to create an account.
+- Users can view individual recipe detail pages containing ingredients and method steps.
+- Users can search for recipes using keywords.
+- Users can filter recipes by category.
+- Users can register for an account and log in securely.
+- Authenticated users can create new recipes.
+- Authenticated users can edit their own recipes.
+- Authenticated users can delete their own recipes.
+- Users can log out of their account.
+- The website provides clear UI feedback when forms are submitted or actions are completed.
+
+##### Content Requirements
+- Recipe titles, images, ingredients, and method instructions.
+- Category-based recipe organisation.
+- Clear navigation labels and page headings.
+- Form labels and validation messages to guide user input.
+- Accessible text and color contrast for readability.
 
 
 [Back to contents](#contents)
