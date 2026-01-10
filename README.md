@@ -336,7 +336,7 @@ Each issue included clear acceptance criteria and was linked to the relevant sta
 
 #### MoSCoW Prioritization
 
-The MoSCoW prioritisation method was used to classify tasks as Must Have, Should Have, Could Have, or Won’t Have. This helped ensure that essential functionality was delivered within the project timeframe while allowing flexibility for future enhancements.
+The MoSCoW prioritisation method was used to classify tasks as Must Have, Should Have or Could Have. This helped ensure that essential functionality was delivered within the project timeframe while allowing flexibility for future enhancements.
 
 
 [Back to contents](#contents)
