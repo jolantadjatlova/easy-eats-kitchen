@@ -52,3 +52,321 @@ The application focuses on clean UX design, accessibility, and secure authentica
   - [Learning Help and Resources](#learning-help-and-resources)
   - [Images](#images-1)
 - [Final Tidy-Up](#final-tidy-up)
+
+
+## UX
+
+[Back to contents](#contents)
+
+---
+
+### The 5 Planes of UX
+
+[Back to contents](#contents)
+
+---
+
+#### 1. Strategy
+
+
+[Back to contents](#contents)
+
+---
+
+#### 2. Scope
+
+
+
+[Back to contents](#contents)
+
+---
+
+#### 3. Structure
+
+
+[Back to contents](#contents)
+
+---
+
+#### 4. Skeleton
+
+
+
+[Back to contents](#contents)
+
+---
+
+#### 5. Surface
+
+
+
+[Back to contents](#contents)
+
+---
+
+### User Goals
+
+
+
+[Back to contents](#contents)
+
+---
+
+### User Stories
+
+
+
+[Back to contents](#contents)
+
+---
+
+## Agile Development Process
+
+[Back to contents](#contents)
+
+---
+
+### Planning Tools & Workflow
+
+
+
+[Back to contents](#contents)
+
+---
+
+#### GitHub Projects (Kanban)
+
+
+
+[Back to contents](#contents)
+
+---
+
+#### GitHub Issues
+
+
+
+[Back to contents](#contents)
+
+---
+
+#### MoSCoW Prioritization
+
+
+
+[Back to contents](#contents)
+
+---
+
+### Images
+
+
+
+[Back to contents](#contents)
+
+---
+
+### Responsiveness
+
+
+
+[Back to contents](#contents)
+
+---
+
+## Features
+
+[Back to contents](#contents)
+
+---
+
+### Existing Features
+
+
+
+[Back to contents](#contents)
+
+---
+
+### Future Enhancements
+
+
+
+[Back to contents](#contents)
+
+---
+
+## Data Model & Relationships
+
+
+[Back to contents](#contents)
+
+---
+
+## CRUD Functionality
+
+
+
+[Back to contents](#contents)
+
+---
+
+## Security Features
+
+
+[Back to contents](#contents)
+
+---
+
+## Technologies Used
+
+
+
+[Back to contents](#contents)
+
+---
+
+## Testing
+
+[Back to contents](#contents)
+
+---
+
+### Bugs
+
+
+[Back to contents](#contents)
+
+---
+
+### Responsiveness Test
+
+
+
+[Back to contents](#contents)
+
+---
+
+### Code Validation
+
+[Back to contents](#contents)
+
+---
+
+#### HTML
+
+
+[Back to contents](#contents)
+
+---
+
+#### CSS
+
+
+[Back to contents](#contents)
+
+---
+
+#### JavaScript
+
+
+
+[Back to contents](#contents)
+
+---
+
+### User Story Testing
+
+
+
+[Back to contents](#contents)
+
+---
+
+### Form Validation Testing
+
+
+[Back to contents](#contents)
+
+---
+
+### Lighthouse Testing
+
+
+
+[Back to contents](#contents)
+
+---
+
+### Browser Testing
+
+
+[Back to contents](#contents)
+
+---
+
+## Deployment
+
+[Back to contents](#contents)
+
+---
+
+### To Deploy the Project
+
+
+
+[Back to contents](#contents)
+
+---
+
+### To Fork the Project
+
+
+
+[Back to contents](#contents)
+
+---
+
+### To Clone the Project
+
+
+
+[Back to contents](#contents)
+
+---
+
+## Credits
+
+[Back to contents](#contents)
+
+---
+
+### Feedback, Advice and Support
+
+
+
+[Back to contents](#contents)
+
+---
+
+### Learning Help and Resources
+
+
+
+[Back to contents](#contents)
+
+---
+
+### Images
+
+
+
+[Back to contents](#contents)
+
+---
+
+## Final Tidy-Up
+
+
+
+[Back to contents](#contents)
