@@ -1,3 +1,12 @@
+# [Easy Eats Kitchen](https://easy-eats-kitchen-c0e4478907ac.herokuapp.com/)
+
+Developer: Jolanta Djatlova ([jolantadjatlova](https://github.com/jolantadjatlova))
+
+Easy Eats Kitchen is a full-stack web application that allows users to browse, search, and filter recipes, while registered users can create, edit, and delete their own recipes.
+
+The application focuses on clean UX design, accessibility, and secure authentication, providing a simple and practical solution for everyday meal planning with full CRUD functionality.
+
+
 ### Contents
 
 - [UX](#ux)
