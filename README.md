@@ -184,6 +184,12 @@ These wireframes were created using [Balsamiq](https://balsamiq.com/) during the
 
 ### Colour Scheme
 
+The colour palette was designed using [Coolors](https://coolors.co/) and inspired by the *Easy Eats Kitchen* hero imagery and overall food theme. It combines warm, earthy tones with soft neutral colours to create a natural and welcoming feel that reflects home cooking and fresh ingredients. Accent colours are used to highlight interactive elements while keeping the interface calm and easy to navigate.
+
+![Easy Eats Kitchen Colour Palette](docs/easy-eats-palette.png)
+
+![Easy Eats Kitchen Contrast Grid](docs/easy-eats-contrast-grid.png)
+
 
 
 [Back to contents](#contents)
