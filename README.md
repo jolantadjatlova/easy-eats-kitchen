@@ -298,36 +298,43 @@ A contrast grid was used to ensure that text and interactive elements meet acces
 [Back to contents](#contents)
 ## Agile Development Process
 
+Easy Eats Kitchen was developed using an iterative Agile approach, focusing on delivering a clear and user-friendly Minimum Viable Product (MVP). Development was carried out in small, manageable stages, allowing functionality to be built, tested, and refined incrementally.
+
+The workflow was managed using GitHub Projects (Kanban board) and GitHub Issues, where user stories and tasks were prioritised using the MoSCoW method. This ensured that core functionality such as recipe browsing, searching, authentication, and CRUD operations was implemented first, followed by usability and design improvements.
+
+The overall scope and requirements of the project are outlined in the 5 Planes of UX section.
+
 [Back to contents](#contents)
 
 ---
 
 ### Planning Tools & Workflow
 
-
-
-[Back to contents](#contents)
-
----
+To stay organised and maintain an Agile workflow throughout development, the following tools were used:
 
 #### GitHub Projects (Kanban)
+A Kanban board was created using [GitHub Projects](https://github.com/users/jolantadjatlova/projects/14) to visually manage tasks and track progress. Tasks were broken down into user stories and categorised by status:
 
+- To Do  
+- In Progress  
+- Done  
 
+This approach helped to:
+- Track development progress clearly
+- Maintain focus on achievable goals
+- Manage workload effectively throughout the project
 
-[Back to contents](#contents)
-
----
+![GitHub Projects Board](docs/easy-eats-kitchen-project-board.png)
 
 #### GitHub Issues
 
+GitHub Issues were used to record user stories, development tasks and potential features, with labels applied.
 
-
-[Back to contents](#contents)
-
----
+Each issue included clear acceptance criteria and was linked to the relevant stage of development, supporting traceability and structured progress.
 
 #### MoSCoW Prioritization
 
+The MoSCoW prioritisation method was used to classify tasks as Must Have, Should Have, Could Have, or Won’t Have. This helped ensure that essential functionality was delivered within the project timeframe while allowing flexibility for future enhancements.
 
 
 [Back to contents](#contents)
