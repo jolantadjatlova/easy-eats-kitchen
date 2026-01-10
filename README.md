@@ -17,21 +17,43 @@ The application focuses on clean UX design, accessibility, and secure authentica
     - [4. Skeleton](#4-skeleton)
     - [5. Surface](#5-surface)
   - [User Goals](#user-goals)
+    - [Visitor Goals](#visitor-goals)
+    - [Authenticated User Goals](#authenticated-user-goals)
+    - [Administrator Goals](#administrator-goals)
   - [User Stories](#user-stories)
+    - [Visitor Stories](#visitor-stories)
+    - [Authenticated User Stories](#authenticated-user-stories)
+    - [Administrator Stories](#administrator-stories)
+
+- [Design Choices](#design-choices)
+  - [Wireframes](#wireframes)
+  - [Typography](#typography)
+  - [Colour Scheme](#colour-scheme)
+  - [Images](#images)
+  - [Responsiveness](#responsiveness)
+
 - [Agile Development Process](#agile-development-process)
   - [Planning Tools & Workflow](#planning-tools--workflow)
     - [GitHub Projects (Kanban)](#github-projects-kanban)
     - [GitHub Issues](#github-issues)
     - [MoSCoW Prioritization](#moscow-prioritization)
-  - [Images](#images)
-  - [Responsiveness](#responsiveness)
+
 - [Features](#features)
   - [Existing Features](#existing-features)
+    - [Global Features](#global-features)
+    - [Home Page](#home-page)
+    - [Recipes Page](#recipes-page)
+    - [Recipe Detail Page](#recipe-detail-page)
+    - [Add Recipe Page](#add-recipe-page)
+    - [Authentication Pages](#authentication-pages)
+    - [Error Pages](#error-pages)
   - [Future Enhancements](#future-enhancements)
-- [Data Model & Relationships](#data-model-&-relationships)
+
+- [Data Model & Relationships](#data-model--relationships)
 - [CRUD Functionality](#crud-functionality)
 - [Security Features](#security-features)
 - [Technologies Used](#technologies-used)
+
 - [Testing](#testing)
   - [Bugs](#bugs)
   - [Responsiveness Test](#responsiveness-test)
@@ -43,16 +65,18 @@ The application focuses on clean UX design, accessibility, and secure authentica
   - [Form Validation Testing](#form-validation-testing)
   - [Lighthouse Testing](#lighthouse-testing)
   - [Browser Testing](#browser-testing)
+
 - [Deployment](#deployment)
   - [To Deploy the Project](#to-deploy-the-project)
   - [To Fork the Project](#to-fork-the-project)
   - [To Clone the Project](#to-clone-the-project)
+
 - [Credits](#credits)
   - [Feedback, Advice and Support](#feedback-advice-and-support)
   - [Learning Help and Resources](#learning-help-and-resources)
-  - [Images](#images-1)
-- [Final Tidy-Up](#final-tidy-up)
+  - [Images](#images)
 
+- [Final Tidy-Up](#final-tidy-up)
 
 ## UX
 
@@ -120,6 +144,65 @@ The application focuses on clean UX design, accessibility, and secure authentica
 
 ---
 
+## Design Choices
+
+
+
+[Back to contents](#contents)
+
+---
+
+### Wireframes
+
+These wireframes were created using [Balsamiq](https://balsamiq.com/) during the Scope Plane part of the design and planning process for this project.
+
+- [Landing Page (Guest View)](docs/landing_page_guest_view_wireframe.png)
+- [Landing Page (Logged-in View)](docs/landing_post_log_in_view_wireframe.png)
+
+- [Recipes (All)](docs/recipes_wireframes.png)
+- [My Recipes](docs/my_recipes_wireframes.png)
+
+- [Add Recipe Form](docs/add_recipe_form_wireframes.png)
+
+- [Sign Up](docs/sign_up_wireframe.png)
+- [Sign In](docs/sign_in_wireframe.png)
+
+- [404 Page](docs/404_page_wireframes.png)
+- [500 Page](docs/500_page_wireframes.png)
+
+[Back to contents](#contents)
+
+---
+
+### Typography
+
+
+
+[Back to contents](#contents)
+
+---
+
+### Colour Scheme
+
+
+
+[Back to contents](#contents)
+
+---
+
+### Images
+
+
+
+[Back to contents](#contents)
+
+---
+
+### Responsiveness
+
+
+
+[Back to contents](#contents)
 ## Agile Development Process
 
 [Back to contents](#contents)
