@@ -175,6 +175,9 @@ The wireframes created can be viewed in the [Wireframes](#wireframes) section.
 
 #### 5. Surface
 
+The surface design of *Easy Eats Kitchen* focuses on creating a warm, welcoming, and food-inspired visual experience. Natural imagery, soft neutral backgrounds, and earthy accent colours help convey a sense of comfort and home cooking. The interface prioritises clarity and readability, ensuring users can easily focus on discovering and managing recipes.
+
+Further visual decisions are detailed in the [Typography](#typography) and [Colour Scheme](#colour-scheme) sections.
 
 
 [Back to contents](#contents)
@@ -186,7 +189,6 @@ The wireframes created can be viewed in the [Wireframes](#wireframes) section.
 #### Public Users
 - To browse and view recipes without needing to create an account.
 - To search and filter recipes in order to quickly find suitable meal ideas.
-- To explore recipe content and read comments before deciding to register.
 
 #### Authenticated Users
 - To create an account and log in securely to access additional features.
@@ -268,6 +270,10 @@ These wireframes were created using [Balsamiq](https://balsamiq.com/) during the
 The colour palette was designed using [Coolors](https://coolors.co/) and inspired by the *Easy Eats Kitchen* hero imagery and overall food theme. It combines warm, earthy tones with soft neutral colours to create a natural and welcoming feel that reflects home cooking and fresh ingredients. Accent colours are used to highlight interactive elements while keeping the interface calm and easy to navigate.
 
 ![Easy Eats Kitchen Colour Palette](docs/easy-eats-palette.png)
+
+### Contrast Grid
+
+A contrast grid was used to ensure that text and interactive elements meet accessibility guidelines for contrast and readability across all device types.
 
 ![Easy Eats Kitchen Contrast Grid](docs/easy-eats-contrast-grid.png)
 
