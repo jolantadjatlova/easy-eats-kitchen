@@ -144,6 +144,18 @@ The application focuses on clean UX design, accessibility, and secure authentica
 
 #### 3. Structure
 
+##### Interaction Design
+The website follows a simple and intuitive user flow focused on recipe discovery and management. Public users can browse, search, and filter recipes, while authenticated users can access additional features such as creating and managing their own recipes. Clear UI feedback is provided throughout user interactions.
+
+##### Information Architecture
+Content is organised into clear sections including the homepage, recipe listings, recipe detail pages, and user account functionality. Categories are used to group recipes and support easy navigation. A consistent layout is maintained across all pages using Bootstrap’s grid system.
+
+##### Navigation Layout
+A persistent navigation bar provides access to key areas of the site, including Home, Categories, and user-specific options. The navigation collapses into a mobile-friendly menu on smaller screens to ensure usability across devices.
+
+##### User Flow
+Users arrive on the homepage and can immediately browse or search for recipes. Authenticated users are able to add and manage recipes, while public users can continue browsing without registering.
+
 
 [Back to contents](#contents)
 
