@@ -163,6 +163,10 @@ Users arrive on the homepage and can immediately browse or search for recipes. A
 
 #### 4. Skeleton
 
+Wireframes were used to plan page layout, navigation placement, and content hierarchy before visual styling was applied. Key interface elements such as the navigation bar, search functionality, recipe cards, and forms were positioned to ensure clarity and ease of use across different screen sizes.
+
+The wireframes created can be viewed in the [Wireframes](#wireframes) section.
+
 
 
 [Back to contents](#contents)
