@@ -138,6 +138,21 @@ The application focuses on clean UX design, accessibility, and secure authentica
 
 ### User Stories
 
+#### Public Users
+- As a public user, I want to browse a list of recipes and view individual recipe details so that I can find inspiration and cook a meal.  
+- As a public user, I want to filter recipes by category so that I can quickly find recipes that suit my preferences.  
+- As a public user, I want to search for recipes by keyword so that I can locate specific dishes quickly.
+
+---
+
+#### Authenticated Users
+- As an authenticated user, I want to create an account so that I can create and manage my own recipes.  
+- As an authenticated user, I want to log in to my account so that I can access recipe management features.  
+- As an authenticated user, I want to create new recipes so that I can save and share my own recipes.  
+- As an authenticated user, I want to edit my own recipes so that I can update ingredients or method steps when needed.  
+- As an authenticated user, I want to delete my own recipes so that I can remove recipes I no longer want.  
+- As an authenticated user, I want to leave comments on recipes so that I can share feedback and tips with other users.
+
 
 
 [Back to contents](#contents)
