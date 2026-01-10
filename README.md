@@ -176,6 +176,10 @@ These wireframes were created using [Balsamiq](https://balsamiq.com/) during the
 
 ### Typography
 
+- The **Playfair Display** typeface is used for headings to create a warm, recipe-style aesthetic that reflects the home-cooking theme of the project.  
+- **Lato** is used for body text and navigation due to its clean, simple letterforms, ensuring good readability across different screen sizes.  
+- Varying font weights are used to establish clear visual hierarchy between headings, navigation elements, and content text.  
+- This typography pairing supports a welcoming and approachable interface while keeping the layout clear and easy to navigate.
 
 
 [Back to contents](#contents)
