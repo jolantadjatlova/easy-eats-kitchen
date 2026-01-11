@@ -58,7 +58,7 @@
       style="background-color: #3a2f29"
     >
       <div class="container-fluid px-3">
-        <a class="navbar-brand d-flex align-items-center" href="#">
+        <a class="navbar-brand d-flex align-items-center" href="{% url 'recipes:home' %}">
           <img
             src="{% static 'images/easy_eats_logo.png' %}"
             alt="Easy Eats Kitchen logo"
@@ -80,28 +80,43 @@
 
         <div class="collapse navbar-collapse" id="mainNavbar">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Categories</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">My recipes</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Add recipe</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Log in</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'recipes:home' %}">Home</a>
+  </li>
 
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'recipes:home' %}">Recipes</a>
+  </li>
+
+  <li class="nav-item">
+ 
+    <a class="nav-link" href="{% url 'recipes:home' %}">Categories</a>
+  </li>
+
+  {% if user.is_authenticated %}
+    <li class="nav-item">
+      <a class="nav-link" href="#">My recipes</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Add recipe</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'logout' %}">Log out</a>
+    </li>
+  {% else %}
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'login' %}">Log in</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Register</a>
+    </li>
+  {% endif %}
+</ul>
+</div>
+      </div> 
+    </nav>
     <main class="flex-grow-1">
-      <div class="container text-center my-5">
+  <div class="container text-center my-5">
         <!-- Search bar -->
         <form
           class="d-flex justify-content-center mb-4"
@@ -150,7 +165,7 @@
             <!-- 15 min meals -->
             <div class="col-6 col-md-3">
               <a
-                href="{% url 'recipes_by_category' '15-min-meals' %}"
+                href="{% url 'recipes:recipes_by_category' '15-min-meals' %}"
                 class="text-decoration-none text-dark"
               >
                 <div class="d-flex flex-column align-items-center">
@@ -167,7 +182,7 @@
             <!-- Meat -->
             <div class="col-6 col-md-3">
               <a
-                href="{% url 'recipes_by_category' 'meat' %}"
+                href="{% url 'recipes:recipes_by_category' 'meat' %}"
                 class="text-decoration-none text-dark"
               >
                 <div class="d-flex flex-column align-items-center">
@@ -183,7 +198,7 @@
             <!-- Fish -->
             <div class="col-6 col-md-3">
               <a
-                href="{% url 'recipes_by_category' 'fish' %}"
+                href="{% url 'recipes:recipes_by_category' 'fish' %}"
                 class="text-decoration-none text-dark"
               >
                 <div class="d-flex flex-column align-items-center">
@@ -200,7 +215,7 @@
             <!-- Vegetarian -->
             <div class="col-6 col-md-3">
               <a
-                href="{% url 'recipes_by_category' 'vegetarian' %}"
+                href="{% url 'recipes:recipes_by_category' 'vegetarian' %}"
                 class="text-decoration-none text-dark"
               >
                 <div class="d-flex flex-column align-items-center">
