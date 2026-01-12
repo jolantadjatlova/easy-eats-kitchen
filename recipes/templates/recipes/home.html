@@ -1,0 +1,114 @@
+{% extends "recipes/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container text-center my-5">
+
+  <!-- Search bar -->
+  <form
+    class="d-flex justify-content-center mb-4"
+    role="search"
+    style="max-width: 600px; margin: 0 auto"
+  >
+    <div class="input-group">
+      <input
+        type="text"
+        class="form-control form-control-lg"
+        placeholder="Search recipes"
+      />
+      <button
+        class="btn btn-lg"
+        type="submit"
+        style="background-color: #3a2f29; color: #f5f1eb; border: none"
+      >
+        Search
+      </button>
+    </div>
+  </form>
+
+  <!-- Welcome card -->
+  <div class="d-flex justify-content-center">
+    <div
+      class="mt-3 p-4 text-start"
+      style="
+        max-width: 520px;
+        background-color: rgba(245, 241, 235, 0.9);
+        border-radius: 20px;
+      "
+    >
+      <h2 class="h3 fw-semibold mb-3">Welcome to Easy Eats Kitchen!</h2>
+      <p class="mb-1">Quick, tasty, and stress-free cooking starts here.</p>
+      <p class="mb-0">Browse by mood, time or cravings.</p>
+    </div>
+  </div>
+
+  <!-- Category section -->
+  <section class="mt-5">
+    <h2 class="h4 mb-4">Browse by category</h2>
+
+    <div class="row justify-content-center g-4">
+
+      <!-- 15 min meals -->
+      <div class="col-6 col-md-3">
+        <a
+          href="{% url 'recipes:recipes_by_category' '15-min-meals' %}"
+          class="text-decoration-none text-dark"
+        >
+          <div class="d-flex flex-column align-items-center">
+            <img
+              src="{% static 'images/category-15min.png' %}"
+              alt="15 min meals"
+              class="img-fluid category-img rounded-circle mb-2"
+            />
+            <span class="category-name">15 min meals</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Meat -->
+      <div class="col-6 col-md-3">
+        <a href="{% url 'recipes:recipes_by_category' 'meat' %}" class="text-decoration-none text-dark">
+          <div class="d-flex flex-column align-items-center">
+            <img
+              src="{% static 'images/category-meat.png' %}"
+              alt="Meat"
+              class="img-fluid category-img rounded-circle mb-2"
+            />
+            <span class="category-name">Meat</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Fish -->
+      <div class="col-6 col-md-3">
+        <a href="{% url 'recipes:recipes_by_category' 'fish' %}" class="text-decoration-none text-dark">
+          <div class="d-flex flex-column align-items-center">
+            <img
+              src="{% static 'images/category-fish.png' %}"
+              alt="Fish"
+              class="img-fluid category-img rounded-circle mb-2"
+            />
+            <span class="category-name">Fish</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Vegetarian -->
+      <div class="col-6 col-md-3">
+        <a href="{% url 'recipes:recipes_by_category' 'vegetarian' %}" class="text-decoration-none text-dark">
+          <div class="d-flex flex-column align-items-center">
+            <img
+              src="{% static 'images/category-veg.png' %}"
+              alt="Vegetarian"
+              class="img-fluid category-img rounded-circle mb-2"
+            />
+            <span class="category-name">Vegetarian</span>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+{% endblock %}

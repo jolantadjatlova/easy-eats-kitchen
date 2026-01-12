@@ -7,40 +7,24 @@
     <title>Easy Eats Kitchen</title>
 
     <!-- Favicon -->
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="{% static 'favicon/apple-touch-icon.png' %}"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="{% static 'favicon/favicon-32x32.png' %}"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="{% static 'favicon/favicon-16x16.png' %}"
-    />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}" />
     <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}" />
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="{% static 'favicon/favicon.ico' %}"
-    />
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon/favicon.ico' %}" />
 
-    <!-- Font Awesome-->
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
+
     <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -48,15 +32,14 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
-  <body>
+
+  <body class="d-flex flex-column min-vh-100">
     <!-- Navbar -->
-    <nav
-      class="navbar navbar-expand-lg navbar-dark"
-      style="background-color: #3a2f29"
-    >
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #3a2f29">
       <div class="container-fluid px-3">
         <a class="navbar-brand d-flex align-items-center" href="{% url 'recipes:home' %}">
           <img
@@ -66,6 +49,7 @@
             class="me-2"
           />
         </a>
+
         <button
           class="navbar-toggler"
           type="button"
@@ -80,185 +64,52 @@
 
         <div class="collapse navbar-collapse" id="mainNavbar">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-  <li class="nav-item">
-    <a class="nav-link" href="{% url 'recipes:home' %}">Home</a>
-  </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'recipes:home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'recipes:recipes_list' %}">Recipes</a>
+            </li>
 
-  <li class="nav-item">
-    <a class="nav-link" href="{% url 'recipes:home' %}">Recipes</a>
-  </li>
-
-  <li class="nav-item">
- 
-    <a class="nav-link" href="{% url 'recipes:home' %}">Categories</a>
-  </li>
-
-  {% if user.is_authenticated %}
-    <li class="nav-item">
-      <a class="nav-link" href="#">My recipes</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Add recipe</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="{% url 'logout' %}">Log out</a>
-    </li>
-  {% else %}
-    <li class="nav-item">
-      <a class="nav-link" href="{% url 'login' %}">Log in</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Register</a>
-    </li>
-  {% endif %}
-</ul>
-</div>
-      </div> 
-    </nav>
-    <main class="flex-grow-1">
-  <div class="container text-center my-5">
-        <!-- Search bar -->
-        <form
-          class="d-flex justify-content-center mb-4"
-          role="search"
-          style="max-width: 600px; margin: 0 auto"
-        >
-          <div class="input-group">
-            <input
-              type="text"
-              class="form-control form-control-lg"
-              placeholder="Search recipes"
-            />
-            <button
-              class="btn btn-lg"
-              type="submit"
-              style="background-color: #3a2f29; color: #f5f1eb; border: none"
-            >
-              Search
-            </button>
-          </div>
-        </form>
-
-        <!-- Welcome card -->
-        <div class="d-flex justify-content-center">
-          <div
-            class="mt-3 p-4 text-start"
-            style="
-              max-width: 520px;
-              background-color: rgba(245, 241, 235, 0.9);
-              border-radius: 20px;
-            "
-          >
-            <h2 class="h3 fw-semibold mb-3">Welcome to Easy Eats Kitchen!</h2>
-            <p class="mb-1">
-              Quick, tasty, and stress-free cooking starts here.
-            </p>
-            <p class="mb-0">Browse by mood, time or cravings.</p>
-          </div>
+            {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'recipes:my_recipes' %}">My recipes</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'recipes:add_recipe' %}">Add recipe</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Log out</a>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Log in</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'recipes:signup' %}">Register</a>
+              </li>
+            {% endif %}
+          </ul>
         </div>
-
-        <!-- Category section -->
-        <section class="mt-5">
-          <h2 class="h4 mb-4">Browse by category</h2>
-
-          <div class="row justify-content-center g-4">
-            <!-- 15 min meals -->
-            <div class="col-6 col-md-3">
-              <a
-                href="{% url 'recipes:recipes_by_category' '15-min-meals' %}"
-                class="text-decoration-none text-dark"
-              >
-                <div class="d-flex flex-column align-items-center">
-                  <img
-                    src="{% static 'images/category-15min.png' %}"
-                    alt="15 min meals"
-                    class="img-fluid category-img rounded-circle mb-2"
-                  />
-                  <span class="category-name">15 min meals</span>
-                </div>
-              </a>
-            </div>
-
-            <!-- Meat -->
-            <div class="col-6 col-md-3">
-              <a
-                href="{% url 'recipes:recipes_by_category' 'meat' %}"
-                class="text-decoration-none text-dark"
-              >
-                <div class="d-flex flex-column align-items-center">
-                  <img
-                    src="{% static 'images/category-meat.png' %}"
-                    alt="Meat"
-                    class="img-fluid category-img rounded-circle mb-2"
-                  />
-                  <span class="category-name">Meat</span>
-                </div>
-              </a>
-            </div>
-            <!-- Fish -->
-            <div class="col-6 col-md-3">
-              <a
-                href="{% url 'recipes:recipes_by_category' 'fish' %}"
-                class="text-decoration-none text-dark"
-              >
-                <div class="d-flex flex-column align-items-center">
-                  <img
-                    src="{% static 'images/category-fish.png' %}"
-                    alt="Fish"
-                    class="img-fluid category-img rounded-circle mb-2"
-                  />
-                  <span class="category-name">Fish</span>
-                </div>
-              </a>
-            </div>
-
-            <!-- Vegetarian -->
-            <div class="col-6 col-md-3">
-              <a
-                href="{% url 'recipes:recipes_by_category' 'vegetarian' %}"
-                class="text-decoration-none text-dark"
-              >
-                <div class="d-flex flex-column align-items-center">
-                  <img
-                    src="{% static 'images/category-veg.png' %}"
-                    alt="Vegetarian"
-                    class="img-fluid category-img rounded-circle mb-2"
-                  />
-                  <span class="category-name">Vegetarian</span>
-                </div>
-              </a>
-            </div>
-          </div>
-        </section>
       </div>
-      <!-- end .container -->
+    </nav>
+
+    <!-- Page content -->
+    <main class="flex-grow-1">
+      {% block content %}{% endblock %}
     </main>
 
     <!-- Footer -->
-    <footer
-      class="py-3 border-top"
-      style="background-color: #3a2f29; color: #f5f1eb"
-    >
+    <footer class="py-3 border-top" style="background-color: #3a2f29; color: #f5f1eb">
       <div class="container">
-        <!-- Follow us + icons -->
-        <div
-          class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center"
-        >
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center">
           <div class="mb-2 mb-md-0">
             <div>Follow us</div>
             <div class="mt-1">
-              <a
-                href="#"
-                class="me-3 text-decoration-none"
-                style="color: #f5f1eb"
-              >
+              <a href="#" class="me-3 text-decoration-none" style="color: #f5f1eb">
                 <i class="fa-brands fa-instagram"></i>
               </a>
-              <a
-                href="#"
-                class="me-3 text-decoration-none"
-                style="color: #f5f1eb"
-              >
+              <a href="#" class="me-3 text-decoration-none" style="color: #f5f1eb">
                 <i class="fa-brands fa-facebook-f"></i>
               </a>
               <a href="#" class="text-decoration-none" style="color: #f5f1eb">
@@ -267,7 +118,6 @@
             </div>
           </div>
 
-          <!-- Copyright -->
           <div class="small text-md-end">
             &copy; {% now "Y" %} Easy Eats Kitchen. All rights reserved.
           </div>
@@ -275,11 +125,7 @@
       </div>
     </footer>
 
-    <!-- Bootstrap 5 JS bundle with Popper -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
