@@ -63,33 +63,59 @@
         </button>
 
         <div class="collapse navbar-collapse" id="mainNavbar">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'recipes:home' %}">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'recipes:recipes_list' %}">Recipes</a>
-            </li>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'recipes:home' %}">Home</a>
+  </li>
 
-            {% if user.is_authenticated %}
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'recipes:my_recipes' %}">My recipes</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'recipes:add_recipe' %}">Add recipe</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'logout' %}">Log out</a>
-              </li>
-            {% else %}
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'login' %}">Log in</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'recipes:signup' %}">Register</a>
-              </li>
-            {% endif %}
-          </ul>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'recipes:recipes_list' %}">Recipes</a>
+  </li>
+
+  <li class="nav-item dropdown">
+  <a
+    class="nav-link dropdown-toggle"
+    href="#"
+    id="categoriesDropdown"
+    role="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    Categories
+  </a>
+
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="categoriesDropdown">
+    <li>
+      <a class="dropdown-item" href="{% url 'recipes:recipes_by_category' '15-min-meals' %}">15 min meals</a>
+    </li>
+    <li>
+      <a class="dropdown-item" href="{% url 'recipes:recipes_by_category' 'meat' %}">Meat</a>
+    </li>
+    <li>
+      <a class="dropdown-item" href="{% url 'recipes:recipes_by_category' 'fish' %}">Fish</a>
+    </li>
+    <li>
+      <a class="dropdown-item" href="{% url 'recipes:recipes_by_category' 'vegetarian' %}">Vegetarian</a>
+    </li>
+  </ul>
+</li>
+
+  {% if user.is_authenticated %}
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'recipes:my_recipes' %}">My Recipes</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'logout' %}">Log out</a>
+    </li>
+  {% else %}
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'login' %}">Log in</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'recipes:signup' %}">Register</a>
+    </li>
+  {% endif %}
+</ul>
         </div>
       </div>
     </nav>
