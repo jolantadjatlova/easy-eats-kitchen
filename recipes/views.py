@@ -79,9 +79,44 @@ def recipes_list(request):
 @login_required
 def my_recipes(request):
     """
-    Private page: shows recipes created by the logged-in user (placeholder for now).
+    Private page: shows recipes created by the logged-in user (temporary hardcoded data).
     """
-    return render(request, "recipes/my_recipes.html")
+    recipes = [
+        {
+            "id": 101,
+            "title": "My Chicken Wrap",
+            "image": "images/category-meat.png",
+            "ingredients": [
+                "Wraps",
+                "Cooked chicken",
+                "Lettuce",
+                "Yogurt sauce",
+            ],
+            "method": [
+                "Warm the wrap.",
+                "Add ingredients.",
+                "Roll and serve.",
+            ],
+        },
+        {
+            "id": 102,
+            "title": "My Quick Veggie Pasta",
+            "image": "images/category-veg.png",
+            "ingredients": [
+                "Pasta",
+                "Cherry tomatoes",
+                "Spinach",
+                "Olive oil",
+            ],
+            "method": [
+                "Cook pasta.",
+                "Wilt spinach, add tomatoes.",
+                "Mix everything together.",
+            ],
+        },
+    ]
+
+    return render(request, "recipes/my_recipes.html", {"recipes": recipes})
 
 
 @login_required
