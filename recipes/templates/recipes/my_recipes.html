@@ -4,90 +4,88 @@
 {% block content %}
 <div class="container my-4">
 
-  <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-3">
-    <h1 class="mb-2 mb-md-0">My Recipes</h1>
-    <a class="btn" href="{% url 'recipes:add_recipe' %}" style="background-color:#3a2f29;color:#f5f1eb;">
-      + Add recipe
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="mb-0">My Recipes</h1>
+
+    {# Wireframes show Add Recipe here #}
+    <a href="{% url 'recipes:add_recipe' %}" class="btn"
+       style="background-color:#3a2f29;color:#f5f1eb;">
+      + Add Recipe
     </a>
   </div>
 
-  <p class="text-muted">Only registered users can see this page</p>
+  {% if recipes %}
+    <div class="accordion" id="myRecipesAccordion">
 
-  <div class="accordion" id="myRecipesAccordion">
-    {% for r in recipes %}
-      <div class="accordion-item mb-3">
-        <h2 class="accordion-header" id="myHeading{{ r.id }}">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#myCollapse{{ r.id }}"
-            aria-expanded="false"
-            aria-controls="myCollapse{{ r.id }}"
-          >
-            {{ r.title }}
-          </button>
-        </h2>
+      {% for recipe in recipes %}
+        <div class="accordion-item mb-3">
+          <h2 class="accordion-header" id="heading-{{ recipe.id }}">
+            <button class="accordion-button {% if not forloop.first %}collapsed{% endif %}"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapse-{{ recipe.id }}"
+                    aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}"
+                    aria-controls="collapse-{{ recipe.id }}">
+              <div class="d-flex w-100 justify-content-between align-items-center">
+                <span class="fw-semibold">{{ recipe.title }}</span>
 
-        <div
-          id="myCollapse{{ r.id }}"
-          class="accordion-collapse collapse"
-          aria-labelledby="myHeading{{ r.id }}"
-          data-bs-parent="#myRecipesAccordion"
-        >
-          <div class="accordion-body">
-            <div class="row g-3 align-items-start">
-
-              <!-- Image -->
-              <div class="col-12 col-md-3 text-center">
-                <img
-                  src="{% static r.image %}"
-                  alt="{{ r.title }}"
-                  class="img-fluid rounded-circle"
-                  style="max-width: 140px;"
-                />
-              </div>
-
-              <!-- Ingredients -->
-              <div class="col-12 col-md-4">
-                <h3 class="h5">Ingredients</h3>
-                <ul class="mb-0">
-                  {% for item in r.ingredients %}
-                    <li>{{ item }}</li>
-                  {% endfor %}
-                </ul>
-              </div>
-
-              <!-- Method -->
-              <div class="col-12 col-md-5">
-                <h3 class="h5">Method</h3>
-                <ol class="mb-3">
-                  {% for step in r.method %}
-                    <li>{{ step }}</li>
-                  {% endfor %}
-                </ol>
-
-                <div class="d-flex gap-2">
-                  <a class="btn btn-outline-secondary btn-sm" href="#">
-                    Edit
+                {# Edit/Delete icons like wireframes #}
+                <span class="ms-3">
+                  <a href="#" class="btn btn-sm btn-outline-secondary me-2" title="Edit">
+                    <i class="fa-solid fa-pen"></i>
                   </a>
-                  <a class="btn btn-outline-danger btn-sm" href="#">
-                    Delete
+                  <a href="#" class="btn btn-sm btn-outline-danger" title="Delete">
+                    <i class="fa-solid fa-trash"></i>
                   </a>
+                </span>
+              </div>
+            </button>
+          </h2>
+
+          <div id="collapse-{{ recipe.id }}"
+               class="accordion-collapse collapse {% if forloop.first %}show{% endif %}"
+               aria-labelledby="heading-{{ recipe.id }}"
+               data-bs-parent="#myRecipesAccordion">
+
+            <div class="accordion-body">
+              <div class="row g-3 align-items-start">
+                <div class="col-12 col-md-3 text-center">
+                  <img src="{% static recipe.image %}"
+                       class="img-fluid rounded-circle"
+                       alt="{{ recipe.title }}"
+                       style="max-width:140px;">
                 </div>
 
-              </div>
+                <div class="col-12 col-md-4">
+                  <h3 class="h5">Ingredients</h3>
+                  <ul class="mb-0">
+                    {% for item in recipe.ingredients %}
+                      <li>{{ item }}</li>
+                    {% endfor %}
+                  </ul>
+                </div>
 
+                <div class="col-12 col-md-5">
+                  <h3 class="h5">Method</h3>
+                  <ol class="mb-0">
+                    {% for step in recipe.method %}
+                      <li>{{ step }}</li>
+                    {% endfor %}
+                  </ol>
+                </div>
+              </div>
             </div>
+
           </div>
         </div>
-      </div>
-    {% empty %}
-      <div class="alert alert-info">
-        You haven’t added any recipes yet. Click <strong>Add recipe</strong> to create your first one.
-      </div>
-    {% endfor %}
-  </div>
+      {% endfor %}
+
+    </div>
+  {% else %}
+    <div class="alert alert-info">
+      You don’t have any recipes yet. Click <strong>Add Recipe</strong> to create your first one.
+    </div>
+  {% endif %}
 
 </div>
 {% endblock %}

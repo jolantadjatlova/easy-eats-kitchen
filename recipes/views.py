@@ -79,44 +79,34 @@ def recipes_list(request):
 @login_required
 def my_recipes(request):
     """
-    Private page: shows recipes created by the logged-in user (temporary hardcoded data).
+    Private page: shows recipes created by the logged-in user (temporary hardcoded data for now).
     """
-    recipes = [
+    my_recipes = [
         {
-            "id": 101,
-            "title": "My Chicken Wrap",
+            "id": 1,
+            "title": "Grilled Chicken Skewers",
             "image": "images/category-meat.png",
             "ingredients": [
-                "Wraps",
-                "Cooked chicken",
-                "Lettuce",
-                "Yogurt sauce",
+                "2 chicken breasts, cut into chunks",
+                "2 tbsp olive oil",
+                "1 tbsp lemon juice",
+                "1 tsp dried oregano",
             ],
             "method": [
-                "Warm the wrap.",
-                "Add ingredients.",
-                "Roll and serve.",
+                "In a bowl, combine olive oil, lemon juice, oregano, and seasonings.",
+                "Thread chicken onto skewers and grill 10–12 minutes.",
             ],
         },
         {
-            "id": 102,
-            "title": "My Quick Veggie Pasta",
-            "image": "images/category-veg.png",
-            "ingredients": [
-                "Pasta",
-                "Cherry tomatoes",
-                "Spinach",
-                "Olive oil",
-            ],
-            "method": [
-                "Cook pasta.",
-                "Wilt spinach, add tomatoes.",
-                "Mix everything together.",
-            ],
+            "id": 2,
+            "title": "Beef Stir-Fry",
+            "image": "images/category-meat.png",
+            "ingredients": ["Beef strips", "Mixed vegetables", "Soy sauce", "Garlic"],
+            "method": ["Sear beef.", "Add veg.", "Stir in sauce and serve."],
         },
     ]
 
-    return render(request, "recipes/my_recipes.html", {"recipes": recipes})
+    return render(request, "recipes/my_recipes.html", {"recipes": my_recipes})
 
 
 @login_required
