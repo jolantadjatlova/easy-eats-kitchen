@@ -1,9 +1,5 @@
-{% extends "recipes/base.html" %}
-{% load static %}
-
-{% block content %}
+{% extends "recipes/base.html" %} {% load static %} {% block content %}
 <div class="container my-4">
-
   <h1 class="mb-3">Recipes</h1>
 
   <!-- Search (placeholder now) -->
@@ -15,8 +11,13 @@
         class="form-control"
         placeholder="Search recipes"
         aria-label="Search recipes"
+        value="{{ q|default:'' }}"
       />
-      <button class="btn" type="submit" style="background-color:#3a2f29;color:#f5f1eb;">
+      <button
+        class="btn"
+        type="submit"
+        style="background-color: #3a2f29; color: #f5f1eb"
+      >
         Search
       </button>
     </div>
@@ -25,69 +26,64 @@
   <!-- Accordion -->
   <div class="accordion" id="recipesAccordion">
     {% for r in recipes %}
-      <div class="accordion-item mb-3">
-        <h2 class="accordion-header" id="heading{{ r.id }}">
-          <button
-            class="accordion-button {% if not forloop.first %}collapsed{% endif %}"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapse{{ r.id }}"
-            aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}"
-            aria-controls="collapse{{ r.id }}"
-          >
-            {{ r.title }}
-          </button>
-        </h2>
-
-        <div
-          id="collapse{{ r.id }}"
-          class="accordion-collapse collapse {% if forloop.first %}show{% endif %}"
-          aria-labelledby="heading{{ r.id }}"
-          data-bs-parent="#recipesAccordion"
+    <div class="accordion-item mb-3">
+      <h2 class="accordion-header" id="heading{{ r.id }}">
+        <button
+          class="accordion-button {% if not forloop.first %}collapsed{% endif %}"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapse{{ r.id }}"
+          aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}"
+          aria-controls="collapse{{ r.id }}"
         >
-          <div class="accordion-body">
+          {{ r.title }}
+        </button>
+      </h2>
 
-            <div class="row g-3 align-items-start">
-
-              <!-- Image -->
-              <div class="col-12 col-md-3 text-center">
-                <img
-                  src="{% static r.image %}"
-                  alt="{{ r.title }}"
-                  class="img-fluid rounded-circle"
-                  style="max-width: 140px;"
-                />
-              </div>
-
-              <!-- Ingredients -->
-              <div class="col-12 col-md-4">
-                <h3 class="h5">Ingredients</h3>
-                <ul class="mb-0">
-                  {% for item in r.ingredients %}
-                    <li>{{ item }}</li>
-                  {% endfor %}
-                </ul>
-              </div>
-
-              <!-- Method -->
-              <div class="col-12 col-md-5">
-                <h3 class="h5">Method</h3>
-                <ol class="mb-0">
-                  {% for step in r.method %}
-                    <li>{{ step }}</li>
-                  {% endfor %}
-                </ol>
-              </div>
-
+      <div
+        id="collapse{{ r.id }}"
+        class="accordion-collapse collapse {% if forloop.first %}show{% endif %}"
+        aria-labelledby="heading{{ r.id }}"
+        data-bs-parent="#recipesAccordion"
+      >
+        <div class="accordion-body">
+          <div class="row g-3 align-items-start">
+            <!-- Image -->
+            <div class="col-12 col-md-3 text-center">
+              <img
+                src="{% static 'images/recipe_placeholder.png' %}"
+                alt="{{ r.title }}"
+                class="img-fluid rounded-circle"
+                style="max-width: 140px"
+              />
             </div>
 
+            <!-- Ingredients -->
+            <div class="col-12 col-md-4">
+              <h3 class="h5">Ingredients</h3>
+              <ul class="mb-0">
+                {% for line in r.ingredients.splitlines %} {% if line %}
+                <li>{{ line }}</li>
+                {% endif %} {% endfor %}
+              </ul>
+            </div>
+
+            <!-- Method -->
+            <div class="col-12 col-md-5">
+              <h3 class="h5">Method</h3>
+              <ol class="mb-0">
+                {% for line in r.method.splitlines %} {% if line %}
+                <li>{{ line }}</li>
+                {% endif %} {% endfor %}
+              </ol>
+            </div>
           </div>
         </div>
       </div>
+    </div>
     {% empty %}
-      <p>No recipes found.</p>
+    <p>No recipes found.</p>
     {% endfor %}
   </div>
-
 </div>
 {% endblock %}
