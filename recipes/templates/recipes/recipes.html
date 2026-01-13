@@ -50,12 +50,21 @@
           <div class="row g-3 align-items-start">
             <!-- Image -->
             <div class="col-12 col-md-3 text-center">
+              {% if r.image %}
+              <img
+                src="{{ r.image.url }}"
+                alt="{{ r.title }}"
+                class="img-fluid rounded-circle"
+                style="max-width: 140px"
+              />
+              {% else %}
               <img
                 src="{% static 'images/recipe_placeholder.png' %}"
                 alt="{{ r.title }}"
                 class="img-fluid rounded-circle"
                 style="max-width: 140px"
               />
+              {% endif %}
             </div>
 
             <!-- Ingredients -->

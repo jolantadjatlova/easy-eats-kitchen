@@ -35,6 +35,7 @@ class Recipe(models.Model):
     )
 
     title = models.CharField(max_length=120)
+    image = models.ImageField(upload_to="recipes/", blank=True, null=True)
     ingredients = models.TextField(help_text="One ingredient per line")
     method = models.TextField(help_text="Step-by-step method")
 
