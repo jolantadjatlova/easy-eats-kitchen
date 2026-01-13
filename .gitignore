@@ -12,6 +12,7 @@ venv/
 # Django
 db.sqlite3
 staticfiles/
+.env
 
 # OS / Editor
 .DS_Store
