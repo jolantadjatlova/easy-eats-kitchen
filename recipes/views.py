@@ -1,7 +1,9 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from django.db.models import Q
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 
+from .forms import RecipeForm
 from .models import Category, Recipe
 
 
@@ -74,7 +76,19 @@ def my_recipes(request):
 
 @login_required
 def add_recipe(request):
-    return render(request, "recipes/add_recipe.html")
+    if request.method == "POST":
+        form = RecipeForm(request.POST, request.FILES)
+        if form.is_valid():
+            recipe = form.save(commit=False)
+            recipe.owner = request.user
+            recipe.save()
+            messages.success(request, "Recipe added successfully!")
+            return redirect("recipes:my_recipes")
+        messages.error(request, "Please fix the errors below.")
+    else:
+        form = RecipeForm()
+
+    return render(request, "recipes/add_recipe.html", {"form": form})
 
 
 def signup(request):
