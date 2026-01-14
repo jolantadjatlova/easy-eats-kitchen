@@ -1,91 +1,97 @@
-{% extends "recipes/base.html" %}
-{% load static %}
-
-{% block content %}
+{% extends "recipes/base.html" %} {% load static %} {% block content %}
 <div class="container my-4">
-
   <div class="d-flex justify-content-between align-items-center mb-3">
     <h1 class="mb-0">My Recipes</h1>
 
-    {# Wireframes show Add Recipe here #}
-    <a href="{% url 'recipes:add_recipe' %}" class="btn"
-       style="background-color:#3a2f29;color:#f5f1eb;">
+    <a
+      href="{% url 'recipes:add_recipe' %}"
+      class="btn"
+      style="background-color: #3a2f29; color: #f5f1eb"
+    >
       + Add Recipe
     </a>
   </div>
 
   {% if recipes %}
-    <div class="accordion" id="myRecipesAccordion">
+  <div class="accordion" id="myRecipesAccordion">
+    {% for recipe in recipes %}
+    <div class="accordion-item mb-3">
+      <h2 class="accordion-header" id="heading-{{ recipe.id }}">
+        <button
+          class="accordion-button {% if not forloop.first %}collapsed{% endif %}"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapse-{{ recipe.id }}"
+          aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}"
+          aria-controls="collapse-{{ recipe.id }}"
+        >
+          <div class="d-flex w-100 justify-content-between align-items-center">
+            <span class="fw-semibold">{{ recipe.title }}</span>
 
-      {% for recipe in recipes %}
-        <div class="accordion-item mb-3">
-          <h2 class="accordion-header" id="heading-{{ recipe.id }}">
-            <button class="accordion-button {% if not forloop.first %}collapsed{% endif %}"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapse-{{ recipe.id }}"
-                    aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}"
-                    aria-controls="collapse-{{ recipe.id }}">
-              <div class="d-flex w-100 justify-content-between align-items-center">
-                <span class="fw-semibold">{{ recipe.title }}</span>
+            {# Edit/Delete icons #}
+            <span class="ms-3">
+              <a
+                href="#"
+                class="btn btn-sm btn-outline-secondary me-2"
+                title="Edit"
+              >
+                <i class="fa-solid fa-pen"></i>
+              </a>
+              <a href="#" class="btn btn-sm btn-outline-danger" title="Delete">
+                <i class="fa-solid fa-trash"></i>
+              </a>
+            </span>
+          </div>
+        </button>
+      </h2>
 
-                {# Edit/Delete icons like wireframes #}
-                <span class="ms-3">
-                  <a href="#" class="btn btn-sm btn-outline-secondary me-2" title="Edit">
-                    <i class="fa-solid fa-pen"></i>
-                  </a>
-                  <a href="#" class="btn btn-sm btn-outline-danger" title="Delete">
-                    <i class="fa-solid fa-trash"></i>
-                  </a>
-                </span>
-              </div>
-            </button>
-          </h2>
-
-          <div id="collapse-{{ recipe.id }}"
-               class="accordion-collapse collapse {% if forloop.first %}show{% endif %}"
-               aria-labelledby="heading-{{ recipe.id }}"
-               data-bs-parent="#myRecipesAccordion">
-
-            <div class="accordion-body">
-              <div class="row g-3 align-items-start">
-                <div class="col-12 col-md-3 text-center">
-                  <img src="{% static recipe.image %}"
-                       class="img-fluid rounded-circle"
-                       alt="{{ recipe.title }}"
-                       style="max-width:140px;">
-                </div>
-
-                <div class="col-12 col-md-4">
-                  <h3 class="h5">Ingredients</h3>
-                  <ul class="mb-0">
-                    {% for item in recipe.ingredients %}
-                      <li>{{ item }}</li>
-                    {% endfor %}
-                  </ul>
-                </div>
-
-                <div class="col-12 col-md-5">
-                  <h3 class="h5">Method</h3>
-                  <ol class="mb-0">
-                    {% for step in recipe.method %}
-                      <li>{{ step }}</li>
-                    {% endfor %}
-                  </ol>
-                </div>
-              </div>
+      <div
+        id="collapse-{{ recipe.id }}"
+        class="accordion-collapse collapse {% if forloop.first %}show{% endif %}"
+        aria-labelledby="heading-{{ recipe.id }}"
+        data-bs-parent="#myRecipesAccordion"
+      >
+        <div class="accordion-body">
+          <div class="row g-3 align-items-start">
+            <div class="col-12 col-md-3 text-center">
+              {% if recipe.image %}
+              <img
+                src="{{ recipe.image.url }}"
+                class="img-fluid rounded-circle"
+                alt="{{ recipe.title }}"
+                style="max-width: 140px"
+              />
+              {% endif %}
             </div>
 
+            <div class="col-12 col-md-4">
+              <h3 class="h5">Ingredients</h3>
+              <ul class="mb-0">
+                {% for item in recipe.ingredients.splitlines %} {% if item %}
+                <li>{{ item }}</li>
+                {% endif %} {% endfor %}
+              </ul>
+            </div>
+
+            <div class="col-12 col-md-5">
+              <h3 class="h5">Method</h3>
+              <ol class="mb-0">
+                {% for step in recipe.method.splitlines %} {% if step %}
+                <li>{{ step }}</li>
+                {% endif %} {% endfor %}
+              </ol>
+            </div>
           </div>
         </div>
-      {% endfor %}
-
+      </div>
     </div>
+    {% endfor %}
+  </div>
   {% else %}
-    <div class="alert alert-info">
-      You don’t have any recipes yet. Click <strong>Add Recipe</strong> to create your first one.
-    </div>
+  <div class="alert alert-info">
+    You don’t have any recipes yet. Click <strong>Add Recipe</strong> to create
+    your first one.
+  </div>
   {% endif %}
-
 </div>
 {% endblock %}
