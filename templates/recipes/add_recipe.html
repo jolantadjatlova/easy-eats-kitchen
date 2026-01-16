@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 <div class="container my-4" style="max-width: 860px;">
@@ -12,45 +13,20 @@
     <form method="post" enctype="multipart/form-data">
       {% csrf_token %}
 
-      {{ form.non_field_errors }}
+      {{ form|crispy }}
 
-      <div class="mb-3">
-        {{ form.title.label_tag }}
-        {{ form.title }}
-        {{ form.title.errors }}
-      </div>
-
-      <div class="mb-3">
-        {{ form.category.label_tag }}
-        {{ form.category }}
-        {{ form.category.errors }}
-      </div>
-
-      <div class="mb-3">
-        {{ form.image.label_tag }}
-        {{ form.image }}
-        {{ form.image.errors }}
-      </div>
-
-      <div class="mb-3">
-        {{ form.ingredients.label_tag }}
-        {{ form.ingredients }}
-        {{ form.ingredients.errors }}
-        <div class="form-text">Enter one ingredient per line.</div>
-      </div>
-
-      <div class="mb-3">
-        {{ form.method.label_tag }}
-        {{ form.method }}
-        {{ form.method.errors }}
-        <div class="form-text">Enter one step per line.</div>
-      </div>
-
-      <div class="d-flex gap-2">
-        <button type="submit" class="btn" style="background:#3a2f29;color:#f5f1eb;">
+      <div class="d-flex gap-2 mt-3">
+        <button
+          type="submit"
+          class="btn"
+          style="background:#3a2f29;color:#f5f1eb;"
+        >
           Save recipe
         </button>
-        <a href="{% url 'recipes:my_recipes' %}" class="btn btn-outline-secondary">Cancel</a>
+
+        <a href="{% url 'recipes:my_recipes' %}" class="btn btn-outline-secondary">
+          Cancel
+        </a>
       </div>
     </form>
   </div>

@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'crispy_forms',
+    'crispy_bootstrap5',
     'cloudinary',
     'cloudinary_storage',
     'recipes',
@@ -154,3 +156,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = "recipes:my_recipes"
 LOGOUT_REDIRECT_URL = "recipes:home"
 LOGIN_URL = "account_login"
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
