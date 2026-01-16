@@ -1,4 +1,12 @@
 {% load static %}
+
+{% url 'recipes:home' as home_url %}
+{% url 'recipes:recipes_list' as recipes_url %}
+{% url 'recipes:my_recipes' as my_recipes_url %}
+{% url 'account_login' as login_url %}
+{% url 'account_signup' as signup_url %}
+{% url 'account_logout' as logout_url %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,9 +15,23 @@
     <title>Easy Eats Kitchen</title>
 
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}" />
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}" />
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="{% static 'favicon/apple-touch-icon.png' %}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{% static 'favicon/favicon-32x32.png' %}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="{% static 'favicon/favicon-16x16.png' %}"
+    />
     <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}" />
     <link rel="icon" type="image/x-icon" href="{% static 'favicon/favicon.ico' %}" />
 
@@ -41,7 +63,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #3a2f29">
       <div class="container-fluid px-3">
-        <a class="navbar-brand d-flex align-items-center" href="{% url 'recipes:home' %}">
+        <a class="navbar-brand d-flex align-items-center" href="{{ home_url }}">
           <img
             src="{% static 'images/easy_eats_logo.png' %}"
             alt="Easy Eats Kitchen logo"
@@ -63,59 +85,108 @@
         </button>
 
         <div class="collapse navbar-collapse" id="mainNavbar">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-  <li class="nav-item">
-    <a class="nav-link" href="{% url 'recipes:home' %}">Home</a>
-  </li>
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <!-- Home -->
+            <li class="nav-item">
+              <a
+                href="{{ home_url }}"
+                class="nav-link{% if request.path == home_url %} active{% endif %}"
+                {% if request.path == home_url %}aria-current="page"{% endif %}
+              >
+                Home
+              </a>
+            </li>
 
-  <li class="nav-item">
-    <a class="nav-link" href="{% url 'recipes:recipes_list' %}">Recipes</a>
-  </li>
+            <!-- Recipes -->
+            <li class="nav-item">
+              <a
+                href="{{ recipes_url }}"
+                class="nav-link{% if request.path == recipes_url %} active{% endif %}"
+                {% if request.path == recipes_url %}aria-current="page"{% endif %}
+              >
+                Recipes
+              </a>
+            </li>
 
-  <li class="nav-item dropdown">
-  <a
-    class="nav-link dropdown-toggle"
-    href="#"
-    id="categoriesDropdown"
-    role="button"
-    data-bs-toggle="dropdown"
-    aria-expanded="false"
-  >
-    Categories
-  </a>
+            <!-- Categories dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="categoriesDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Categories
+              </a>
 
-  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="categoriesDropdown">
-    <li>
-      <a class="dropdown-item" href="{% url 'recipes:recipes_by_category' '15-min-meals' %}">15 min meals</a>
-    </li>
-    <li>
-      <a class="dropdown-item" href="{% url 'recipes:recipes_by_category' 'meat' %}">Meat</a>
-    </li>
-    <li>
-      <a class="dropdown-item" href="{% url 'recipes:recipes_by_category' 'fish' %}">Fish</a>
-    </li>
-    <li>
-      <a class="dropdown-item" href="{% url 'recipes:recipes_by_category' 'vegetarian' %}">Vegetarian</a>
-    </li>
-  </ul>
-</li>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="categoriesDropdown">
+                <li>
+                  <a class="dropdown-item" href="{% url 'recipes:recipes_by_category' '15-min-meals' %}">
+                    15 min meals
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'recipes:recipes_by_category' 'meat' %}">Meat</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'recipes:recipes_by_category' 'fish' %}">Fish</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'recipes:recipes_by_category' 'vegetarian' %}">
+                    Vegetarian
+                  </a>
+                </li>
+              </ul>
+            </li>
 
-  {% if user.is_authenticated %}
-    <li class="nav-item">
-      <a class="nav-link" href="{% url 'recipes:my_recipes' %}">My Recipes</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="{% url 'logout' %}">Log out</a>
-    </li>
-  {% else %}
-    <li class="nav-item">
-      <a class="nav-link" href="{% url 'login' %}">Log in</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="{% url 'recipes:signup' %}">Register</a>
-    </li>
-  {% endif %}
-</ul>
+            {% if user.is_authenticated %}
+              <!-- My Recipes -->
+              <li class="nav-item">
+                <a
+                  href="{{ my_recipes_url }}"
+                  class="nav-link{% if request.path == my_recipes_url %} active{% endif %}"
+                  {% if request.path == my_recipes_url %}aria-current="page"{% endif %}
+                >
+                  My Recipes
+                </a>
+              </li>
+
+              <!-- Logout -->
+              <li class="nav-item">
+                <a
+                  href="{{ logout_url }}"
+                  class="nav-link{% if request.path == logout_url %} active{% endif %}"
+                  {% if request.path == logout_url %}aria-current="page"{% endif %}
+                >
+                  Log out
+                </a>
+              </li>
+            {% else %}
+              <!-- Login -->
+              <li class="nav-item">
+                <a
+                  href="{{ login_url }}"
+                  class="nav-link{% if request.path == login_url %} active{% endif %}"
+                  {% if request.path == login_url %}aria-current="page"{% endif %}
+                >
+                  Log in
+                </a>
+              </li>
+
+              <!-- Register -->
+              <li class="nav-item">
+                <a
+                  href="{{ signup_url }}"
+                  class="nav-link{% if request.path == signup_url %} active{% endif %}"
+                  {% if request.path == signup_url %}aria-current="page"{% endif %}
+                >
+                  Register
+                </a>
+              </li>
+            {% endif %}
+          </ul>
         </div>
       </div>
     </nav>

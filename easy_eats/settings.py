@@ -153,4 +153,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = "recipes:my_recipes"
 LOGOUT_REDIRECT_URL = "recipes:home"
-LOGIN_URL = "login"
+LOGIN_URL = "account_login"
