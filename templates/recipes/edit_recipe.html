@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container my-4" style="max-width: 720px;">
+  <h1 class="mb-3">Edit Recipe</h1>
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button class="btn" style="background-color:#3a2f29; color:#f5f1eb;">Save changes</button>
+    <a class="btn btn-outline-secondary ms-2" href="{% url 'recipes:my_recipes' %}">Cancel</a>
+  </form>
+</div>
+{% endblock %}

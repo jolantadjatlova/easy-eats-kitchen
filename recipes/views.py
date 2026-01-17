@@ -93,3 +93,31 @@ def add_recipe(request):
 
 def signup(request):
     return render(request, "recipes/signup.html")
+
+@login_required
+def edit_recipe(request, pk):
+    recipe = get_object_or_404(Recipe, pk=pk, owner=request.user)
+
+    if request.method == "POST":
+        form = RecipeForm(request.POST, request.FILES, instance=recipe)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Recipe updated successfully!")
+            return redirect("recipes:my_recipes")
+        messages.error(request, "Please fix the errors below.")
+    else:
+        form = RecipeForm(instance=recipe)
+
+    return render(request, "recipes/edit_recipe.html", {"form": form, "recipe": recipe})
+
+
+@login_required
+def delete_recipe(request, pk):
+    recipe = get_object_or_404(Recipe, pk=pk, owner=request.user)
+
+    if request.method == "POST":
+        recipe.delete()
+        messages.success(request, "Recipe deleted successfully!")
+        return redirect("recipes:my_recipes")
+
+    return render(request, "recipes/delete_recipe_confirm.html", {"recipe": recipe})
