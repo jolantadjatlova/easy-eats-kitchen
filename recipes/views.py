@@ -91,9 +91,6 @@ def add_recipe(request):
     return render(request, "recipes/add_recipe.html", {"form": form})
 
 
-def signup(request):
-    return render(request, "recipes/signup.html")
-
 @login_required
 def edit_recipe(request, pk):
     recipe = get_object_or_404(Recipe, pk=pk, owner=request.user)
