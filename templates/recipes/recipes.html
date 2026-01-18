@@ -70,29 +70,21 @@
             <!-- Ingredients -->
             <div class="col-12 col-md-4">
               <h3 class="h5">Ingredients</h3>
-              <ul class="mb-0">
-                {% for line in r.ingredients.splitlines %} {% if line %}
-                <li>{{ line }}</li>
-                {% endif %} {% endfor %}
-              </ul>
-            </div>
+              <div class="mb-0">{{ recipe.ingredients|safe }}</div>
 
-            <!-- Method -->
-            <div class="col-12 col-md-5">
-              <h3 class="h5">Method</h3>
-              <ol class="mb-0">
-                {% for line in r.method.splitlines %} {% if line %}
-                <li>{{ line }}</li>
-                {% endif %} {% endfor %}
-              </ol>
+              <!-- Method -->
+              <div class="col-12 col-md-5">
+                <h3 class="h5">Method</h3>
+                <div class="mb-0">{{ recipe.method|safe }}</div>
+              </div>
             </div>
           </div>
         </div>
+        {% empty %}
+        <p>No recipes found.</p>
+        {% endfor %}
       </div>
     </div>
-    {% empty %}
-    <p>No recipes found.</p>
-    {% endfor %}
+    {% endblock %}
   </div>
 </div>
-{% endblock %}
