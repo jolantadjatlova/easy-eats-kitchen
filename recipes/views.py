@@ -25,12 +25,12 @@ def recipes_list(request):
     # Apply search filter if query exists
     if query:
         recipes = recipes.filter(
-            Q(title__icontains=q)
-            | Q(ingredients__icontains=q)
-            | Q(method__icontains=q)
+            Q(title__icontains=query)
+            | Q(ingredients__icontains=query)
+            | Q(method__icontains=query)
         )
 
-    return render(request, "recipes/recipes.html", {"recipes": recipes, "q": q})
+    return render(request, "recipes/recipes.html", {"recipes": recipes, "q": query})
 
 
 def recipes_by_category(request, category_slug):
