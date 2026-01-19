@@ -1,6 +1,15 @@
-{% extends "base.html" %} {% load static %} {% block content %}
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
 <div class="container my-4">
-  <h1 class="mb-3">Recipes</h1>
+  <h1 class="mb-3">
+    {% if category %}
+      {{ category.name }} Recipes
+    {% else %}
+      All Recipes
+    {% endif %}
+  </h1>
 
   <!-- Search -->
   <form class="mb-4" method="get" role="search">
@@ -14,77 +23,119 @@
         value="{{ q|default:'' }}"
       />
       <button
-        class="btn"
+        class="btn btn-search"
         type="submit"
-        style="background-color: #3a2f29; color: #f5f1eb"
       >
-        Search
+        <i class="fa-solid fa-search me-1"></i> Search
       </button>
+      {% if q %}
+        <a href="{% if category %}{% url 'recipes:recipes_by_category' category.slug %}{% else %}{% url 'recipes:recipes_list' %}{% endif %}" class="btn btn-outline-secondary">
+          Clear
+        </a>
+      {% endif %}
     </div>
   </form>
 
-  <!-- Accordion -->
-  <div class="accordion" id="recipesAccordion">
-    {% for r in recipes %}
-    <div class="accordion-item mb-3">
-      <h2 class="accordion-header" id="heading{{ r.id }}">
-        <button
-          class="accordion-button {% if not forloop.first %}collapsed{% endif %}"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#collapse{{ r.id }}"
-          aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}"
-          aria-controls="collapse{{ r.id }}"
-        >
-          {{ r.title }}
-        </button>
-      </h2>
+  <!-- Search results info -->
+  {% if q %}
+    <p class="text-muted mb-3">
+      {% if recipes %}
+        Found {{ recipes.count }} recipe{{ recipes.count|pluralize }} matching "{{ q }}"
+      {% else %}
+        No recipes found matching "{{ q }}"
+      {% endif %}
+    </p>
+  {% endif %}
 
-      <div
-        id="collapse{{ r.id }}"
-        class="accordion-collapse collapse {% if forloop.first %}show{% endif %}"
-        aria-labelledby="heading{{ r.id }}"
-        data-bs-parent="#recipesAccordion"
-      >
-        <div class="accordion-body">
-          <div class="row g-3 align-items-start">
-            <!-- Image -->
-            <div class="col-12 col-md-3 text-center">
-              {% if r.image %}
-              <img
-                src="{{ r.image.url }}"
-                alt="{{ r.title }}"
-                class="img-fluid rounded-circle"
-                style="max-width: 140px"
-              />
-              {% else %}
-              <img
-                src="{% static 'images/recipe_placeholder.png' %}"
-                alt="{{ r.title }}"
-                class="img-fluid rounded-circle"
-                style="max-width: 140px"
-              />
-              {% endif %}
-            </div>
+  <!-- Recipes Accordion -->
+  {% if recipes %}
+    <div class="accordion" id="recipesAccordion">
+      {% for r in recipes %}
+        <div class="accordion-item mb-3">
+          <h2 class="accordion-header" id="heading-{{ r.id }}">
+            <button
+              class="accordion-button {% if not forloop.first %}collapsed{% endif %}"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapse-{{ r.id }}"
+              aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}"
+              aria-controls="collapse-{{ r.id }}"
+            >
+              <div class="d-flex flex-column flex-md-row w-100 align-items-start align-items-md-center">
+                <div>
+                  <span class="fw-semibold d-block">{{ r.title }}</span>
+                  <small class="text-muted">
+                    by {{ r.owner.username }}
+                    {% if r.category %}
+                      · {{ r.category.name }}
+                    {% endif %}
+                  </small>
+                </div>
+              </div>
+            </button>
+          </h2>
 
-            <!-- Ingredients -->
-            <div class="col-12 col-md-4">
-              <h3 class="h5">Ingredients</h3>
-              <div class="mb-0">{{ recipe.ingredients|safe }}</div>
+          <div
+            id="collapse-{{ r.id }}"
+            class="accordion-collapse collapse {% if forloop.first %}show{% endif %}"
+            aria-labelledby="heading-{{ r.id }}"
+            data-bs-parent="#recipesAccordion"
+          >
+            <div class="accordion-body">
+              <div class="row g-3 align-items-start">
+                <!-- Image -->
+                <div class="col-12 col-md-3 text-center">
+                  {% if r.image %}
+                    <img
+                      src="{{ r.image.url }}"
+                      alt="{{ r.title }}"
+                      class="img-fluid rounded-circle recipe-image"
+                    />
+                  {% else %}
+                    <div class="d-flex align-items-center justify-content-center rounded-circle mx-auto recipe-image-placeholder">
+                      <i class="fa-solid fa-utensils fa-2x text-muted"></i>
+                    </div>
+                  {% endif %}
+                </div>
 
-              <!-- Method -->
-              <div class="col-12 col-md-5">
-                <h3 class="h5">Method</h3>
-                <div class="mb-0">{{ recipe.method|safe }}</div>
+                <!-- Ingredients -->
+                <div class="col-12 col-md-4">
+                  <h3 class="h5">Ingredients</h3>
+                  <div class="recipe-content">{{ r.ingredients|safe }}</div>
+                </div>
+
+                <!-- Method -->
+                <div class="col-12 col-md-5">
+                  <h3 class="h5">Method</h3>
+                  <div class="recipe-content">{{ r.method|safe }}</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        {% empty %}
-        <p>No recipes found.</p>
-        {% endfor %}
-      </div>
+      {% endfor %}
     </div>
-    {% endblock %}
-  </div>
+  {% else %}
+    <!-- Empty state -->
+    <div class="text-center py-5">
+      <i class="fa-solid fa-bowl-food fa-4x text-muted mb-3"></i>
+      <h2 class="h4 mb-3">No Recipes Found</h2>
+      <p class="text-muted mb-4">
+        {% if q %}
+          Try adjusting your search terms.
+        {% elif category %}
+          No recipes in this category yet.
+        {% else %}
+          No recipes have been added yet.
+        {% endif %}
+      </p>
+      {% if user.is_authenticated %}
+        <a href="{% url 'recipes:add_recipe' %}" class="btn btn-search">
+          <i class="fa-solid fa-plus me-2"></i> Add a Recipe
+        </a>
+      {% endif %}
+    </div>
+  {% endif %}
 </div>
+
+{% endblock %}
