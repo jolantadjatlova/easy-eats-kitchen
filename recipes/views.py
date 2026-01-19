@@ -8,17 +8,22 @@ from .models import Category, Recipe
 
 
 def home(request):
+    """Render the homepage with category navigation."""
     return render(request, "recipes/home.html")
 
 
 def recipes_list(request):
     """
-    Public page: shows all recipes, supports simple search.
+    Display all recipes with search functionality.
+    
+    Public view - no authentication required.
+    Supports keyword search via 'q' GET parameter.
     """
-    q = request.GET.get("q", "").strip()
+    query = request.GET.get("q", "").strip()
 
     recipes = Recipe.objects.select_related("category", "owner").all()
-    if q:
+    # Apply search filter if query exists
+    if query:
         recipes = recipes.filter(
             Q(title__icontains=q)
             | Q(ingredients__icontains=q)
@@ -76,6 +81,12 @@ def my_recipes(request):
 
 @login_required
 def add_recipe(request):
+    """
+    Handle recipe creation for authenticated users.
+    
+    GET: Display empty recipe form
+    POST: Validate and save new recipe, redirect to my_recipes
+    """
     if request.method == "POST":
         form = RecipeForm(request.POST, request.FILES)
         if form.is_valid():
@@ -93,6 +104,12 @@ def add_recipe(request):
 
 @login_required
 def edit_recipe(request, pk):
+    """
+    Handle recipe editing for recipe owners.
+    
+    Only allows editing of user's own recipes.
+    Returns 404 if recipe doesn't exist or user isn't the owner.
+    """
     recipe = get_object_or_404(Recipe, pk=pk, owner=request.user)
 
     if request.method == "POST":
@@ -110,6 +127,13 @@ def edit_recipe(request, pk):
 
 @login_required
 def delete_recipe(request, pk):
+    """
+    Handle recipe deletion for recipe owners.
+    
+    GET: Display confirmation page
+    POST: Delete recipe and redirect to my_recipes
+    Only allows deletion of user's own recipes.
+    """
     recipe = get_object_or_404(Recipe, pk=pk, owner=request.user)
 
     if request.method == "POST":

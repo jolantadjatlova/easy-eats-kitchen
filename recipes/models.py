@@ -4,6 +4,11 @@ from django.utils.text import slugify
 
 
 class Category(models.Model):
+    """
+    Recipe category model for organizing recipes.
+    
+    Categories are used to group recipes (e.g., Meat, Fish, Vegetarian).
+    """
     name = models.CharField(max_length=50, unique=True)
     slug = models.SlugField(max_length=60, unique=True)
 
@@ -21,6 +26,12 @@ class Category(models.Model):
 
 
 class Recipe(models.Model):
+    """
+    Recipe model storing user-created recipes.
+    
+    Each recipe belongs to one user (owner) and optionally one category.
+    Includes ingredients, method, and optional image.
+    """
     owner = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
