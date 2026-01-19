@@ -1,4 +1,7 @@
-{% extends "base.html" %} {% load static %} {% block content %}
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
 <div class="container my-4">
   <div class="d-flex justify-content-between align-items-center mb-3">
     <h1 class="mb-0">My Recipes</h1>
@@ -37,7 +40,12 @@
               >
                 <i class="fa-solid fa-pen"></i>
               </a>
-              <a href="{% url 'recipes:delete_recipe' recipe.id %}" class="btn btn-sm btn-outline-danger" title="Delete">
+
+              <a
+                href="{% url 'recipes:delete_recipe' recipe.id %}"
+                class="btn btn-sm btn-outline-danger"
+                title="Delete"
+              >
                 <i class="fa-solid fa-trash"></i>
               </a>
             </span>
@@ -66,20 +74,12 @@
 
             <div class="col-12 col-md-4">
               <h3 class="h5">Ingredients</h3>
-              <ul class="mb-0">
-                {% for item in recipe.ingredients.splitlines %} {% if item %}
-                <li>{{ item }}</li>
-                {% endif %} {% endfor %}
-              </ul>
+              <div class="recipe-content">{{ recipe.ingredients|safe }}</div>
             </div>
 
             <div class="col-12 col-md-5">
               <h3 class="h5">Method</h3>
-              <ol class="mb-0">
-                {% for step in recipe.method.splitlines %} {% if step %}
-                <li>{{ step }}</li>
-                {% endif %} {% endfor %}
-              </ol>
+              <div class="recipe-content">{{ recipe.method|safe }}</div>
             </div>
           </div>
         </div>
@@ -89,8 +89,7 @@
   </div>
   {% else %}
   <div class="alert alert-info">
-    You don’t have any recipes yet. Click <strong>Add Recipe</strong> to create
-    your first one.
+    You don't have any recipes yet. Click <strong>Add Recipe</strong> to create your first one.
   </div>
   {% endif %}
 </div>
