@@ -17,13 +17,7 @@ The application focuses on clean UX design, accessibility, and secure authentica
     - [4. Skeleton](#4-skeleton)
     - [5. Surface](#5-surface)
   - [User Goals](#user-goals)
-    - [Visitor Goals](#visitor-goals)
-    - [Authenticated User Goals](#authenticated-user-goals)
-    - [Administrator Goals](#administrator-goals)
   - [User Stories](#user-stories)
-    - [Visitor Stories](#visitor-stories)
-    - [Authenticated User Stories](#authenticated-user-stories)
-    - [Administrator Stories](#administrator-stories)
 
 - [Design Choices](#design-choices)
   - [Wireframes](#wireframes)
@@ -40,16 +34,14 @@ The application focuses on clean UX design, accessibility, and secure authentica
 
 - [Features](#features)
   - [Existing Features](#existing-features)
-    - [Global Features](#global-features)
-    - [Home Page](#home-page)
-    - [Recipes Page](#recipes-page)
-    - [Recipe Detail Page](#recipe-detail-page)
-    - [Add Recipe Page](#add-recipe-page)
-    - [Authentication Pages](#authentication-pages)
-    - [Error Pages](#error-pages)
   - [Future Enhancements](#future-enhancements)
 
 - [Data Model & Relationships](#data-model--relationships)
+  - [Entity Relationship Diagram](#entity-relationship-diagram)
+  - [Database Models](#database-models)
+  - [Database Relationships Summary](#database-relationships-summary)
+  - [Database Implementation](#database-implementation)
+
 - [CRUD Functionality](#crud-functionality)
 - [Security Features](#security-features)
 - [Technologies Used](#technologies-used)
@@ -74,7 +66,7 @@ The application focuses on clean UX design, accessibility, and secure authentica
 - [Credits](#credits)
   - [Feedback, Advice and Support](#feedback-advice-and-support)
   - [Learning Help and Resources](#learning-help-and-resources)
-  - [Images](#images)
+  - [Images](#images-1)
 
 - [Final Tidy-Up](#final-tidy-up)
 
@@ -383,7 +375,80 @@ The MoSCoW prioritisation method was used to classify tasks as Must Have, Should
 
 ## Data Model & Relationships
 
+The Easy Eats Kitchen application uses a relational database structure with three main models: User, Category, and Recipe. The data model is designed to support full CRUD functionality for recipe management while maintaining clear relationships between entities.
 
+### Entity Relationship Diagram
+
+![Entity Relationship Diagram](docs/entity_relationship_diagram.png)
+
+### Database Models
+
+#### User (Django Authentication)
+The User model is provided by Django's built-in authentication system and stores user account information.
+
+**Fields:**
+- `id`: AutoField (Primary Key)
+- `username`: CharField(150) - Unique username for login
+- `email`: EmailField - User's email address
+- `password`: CharField(128) - Hashed password
+
+**Relationships:**
+- One user can create multiple recipes (One-to-Many with Recipe)
+
+#### Category
+The Category model organizes recipes into predefined categories for easy browsing and filtering.
+
+**Fields:**
+- `id`: AutoField (Primary Key)
+- `name`: CharField(50) - Category name (unique)
+- `slug`: SlugField(60) - URL-friendly version of the name (unique, auto-generated)
+
+**Categories available:**
+- 15 min meals
+- Meat
+- Fish
+- Vegetarian
+
+**Relationships:**
+- One category can contain multiple recipes (One-to-Many with Recipe)
+
+#### Recipe
+The Recipe model stores all recipe information created by users.
+
+**Fields:**
+- `id`: AutoField (Primary Key)
+- `owner`: ForeignKey(User) - Links recipe to the user who created it
+- `category`: ForeignKey(Category) - Links recipe to a category (optional, nullable)
+- `title`: CharField(120) - Recipe title
+- `image`: ImageField - Optional recipe image uploaded by user
+- `ingredients`: TextField - List of ingredients (one per line)
+- `method`: TextField - Step-by-step cooking instructions
+- `created_at`: DateTimeField - Timestamp of recipe creation (auto-generated)
+- `updated_at`: DateTimeField - Timestamp of last update (auto-updated)
+
+**Relationships:**
+- Each recipe belongs to one user (owner) - Many-to-One with User
+- Each recipe can belong to one category - Many-to-One with Category (optional)
+
+### Database Relationships Summary
+
+The application uses **One-to-Many** relationships:
+
+1. **User → Recipe (1:N)**
+   - One user can create multiple recipes
+   - Each recipe belongs to exactly one user
+   - Implemented via ForeignKey on Recipe model
+   - `on_delete=CASCADE` ensures recipes are deleted when user is deleted
+
+2. **Category → Recipe (1:N)**
+   - One category can contain multiple recipes
+   - Each recipe can belong to one category (optional)
+   - Implemented via ForeignKey on Recipe model
+   - `on_delete=SET_NULL` ensures recipes remain if category is deleted
+
+### Database Implementation
+
+The application uses **PostgreSQL** as the production database (via Heroku) and SQLite3 for local development. Django's ORM abstracts the database layer, allowing the same models to work with both database systems seamlessly.
 [Back to contents](#contents)
 
 ---
