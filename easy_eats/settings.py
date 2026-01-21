@@ -38,7 +38,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://*.herokuapp.com"
 ]
 
-
+X_FRAME_OPTIONS = "ALLOWALL"
 # Application definition
 
 INSTALLED_APPS = [
