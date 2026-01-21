@@ -11,7 +11,6 @@ venv/
 
 # Django
 db.sqlite3
-staticfiles/
 env.py
 
 # OS / Editor
