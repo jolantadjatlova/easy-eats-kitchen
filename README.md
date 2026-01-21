@@ -6,6 +6,8 @@ Easy Eats Kitchen is a full-stack web application that allows users to browse, s
 
 The application focuses on clean UX design, accessibility, and secure authentication, providing a simple and practical solution for everyday meal planning with full CRUD functionality.
 
+![screenshot](docs/am_i_responsive.png) 
+
 
 ### Contents
 
