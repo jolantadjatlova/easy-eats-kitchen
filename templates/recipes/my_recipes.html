@@ -6,8 +6,8 @@
   <div class="d-flex justify-content-between align-items-center mb-3">
     <h1 class="mb-0">My Recipes</h1>
 
-    <a
-      href="{% url 'recipes:add_recipe' %}"
+    
+      <a href="{% url 'recipes:add_recipe' %}"
       class="btn"
       style="background-color: #3a2f29; color: #f5f1eb"
     >
@@ -28,28 +28,7 @@
           aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}"
           aria-controls="collapse-{{ recipe.id }}"
         >
-          <div class="d-flex w-100 justify-content-between align-items-center">
-            <span class="fw-semibold">{{ recipe.title }}</span>
-
-            {# Edit/Delete icons #}
-            <span class="ms-3">
-              <a
-                href="{% url 'recipes:edit_recipe' recipe.id %}"
-                class="btn btn-sm btn-outline-secondary me-2"
-                title="Edit"
-              >
-                <i class="fa-solid fa-pen"></i>
-              </a>
-
-              <a
-                href="{% url 'recipes:delete_recipe' recipe.id %}"
-                class="btn btn-sm btn-outline-danger"
-                title="Delete"
-              >
-                <i class="fa-solid fa-trash"></i>
-              </a>
-            </span>
-          </div>
+          <span class="fw-semibold">{{ recipe.title }}</span>
         </button>
       </h2>
 
@@ -81,6 +60,24 @@
               <h3 class="h5">Method</h3>
               <div class="recipe-content">{{ recipe.method|safe }}</div>
             </div>
+          </div>
+
+          <div class="d-flex gap-2 justify-content-end mt-3 pt-3 border-top">
+            
+              <a href="{% url 'recipes:edit_recipe' recipe.id %}"
+              class="btn btn-sm btn-outline-secondary"
+              title="Edit"
+            >
+              <i class="fa-solid fa-pen"></i>
+            </a>
+
+            
+              <a href="{% url 'recipes:delete_recipe' recipe.id %}"
+              class="btn btn-sm btn-outline-danger"
+              title="Delete"
+            >
+              <i class="fa-solid fa-trash"></i>
+            </a>
           </div>
         </div>
       </div>
