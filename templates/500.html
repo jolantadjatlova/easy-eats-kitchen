@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container text-center my-5 py-5">
+  <h1 class="display-1 fw-bold mb-3">500</h1>
+  <h2 class="h3 mb-3">Server Error</h2>
+  <p class="mb-4">
+    Oops! Something went wrong in our kitchen. Please try again later.
+  </p>
+  <a href="{% url 'recipes:home' %}" class="btn" style="background-color: #3a2f29; color: #f5f1eb;">
+    Go back home
+  </a>
+</div>
+{% endblock %}

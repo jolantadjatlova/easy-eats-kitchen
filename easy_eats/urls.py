@@ -23,3 +23,7 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     path("", include("recipes.urls")),
 ]
+
+# Custom error handlers
+handler404 = 'recipes.views.handler404'
+handler500 = 'recipes.views.handler500'

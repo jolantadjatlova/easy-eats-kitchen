@@ -1,0 +1,200 @@
+/* Base Styles */
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-image: url("../images/easy_eats_background.32aa89462908.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Navigation and Header */
+
+/* Navbar dropdown styling */
+.navbar .dropdown-menu {
+    background-color: #3a2f29 !important;
+    border: none;
+}
+
+.navbar .dropdown-menu .dropdown-item {
+    color: #f5f1eb !important;
+    padding: 0.5rem 1rem;
+}
+
+.navbar .dropdown-menu .dropdown-item:hover,
+.navbar .dropdown-menu .dropdown-item:focus {
+    background-color: #d97d54 !important;
+    color: #ffffff !important;
+}
+
+/* Navbar link hover */
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+    color: #d97d54 !important;
+}
+
+/* Homepage Styles */
+
+.category-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 0.25rem;
+    color: #3b2414;
+}
+
+/* Category card hover effects */
+.category-img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(217, 125, 84, 0.4);
+}
+
+a:has(.category-img):hover .category-name {
+    color: #d97d54 !important;
+}
+
+/* Recipe Styles */
+
+.recipe-content ul, .recipe-content ol {
+    list-style-position: inside;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.recipe-content li {
+    margin-bottom: 5px;
+}
+
+.recipe-content p {
+    margin-bottom: 8px;
+}
+
+.recipe-image {
+    max-width: 140px;
+    max-height: 140px;
+    object-fit: cover;
+}
+
+.recipe-image-placeholder {
+    width: 140px;
+    height: 140px;
+    background: #e9ecef;
+}
+
+.recipe-content {
+    max-height: 400px;
+    overflow-y: auto;
+    line-height: 1.6;
+}
+
+.recipe-content ul,
+.recipe-content ol {
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.recipe-content p {
+    margin-bottom: 0.5rem;
+}
+
+/* Recipe page layout constraints */
+.recipe-page-content {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Buttons and Interractive Elements */
+
+/* Search button */
+.btn-search {
+    background-color: #3a2f29;
+    color: #f5f1eb;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-search:hover {
+    background-color: #d97d54 !important;
+    color: #ffffff !important;
+}
+
+/* Button hover effects */
+.btn-outline-secondary:hover {
+    background-color: #d97d54 !important;
+    border-color: #d97d54 !important;
+    color: #ffffff !important;
+}
+
+.btn-outline-danger:hover {
+    background-color: #d97d54 !important;
+    border-color: #d97d54 !important;
+    color: #ffffff !important;
+}
+
+/* Components */
+
+/* Accordion customization */
+.accordion-button:not(.collapsed) {
+    background-color: #f5f1eb;
+    color: #3a2f29;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(58, 47, 41, 0.25);
+}
+
+.accordion-button:hover {
+    background-color: rgba(217, 125, 84, 0.1) !important;
+}
+
+.alert-custom {
+    background-color: #f5f1eb;
+    border: 1px solid #d9d6d2;
+    color: #3a2f29;
+    border-radius: 0.375rem;
+    padding: 1rem;
+}
+
+/* Footer */
+
+footer a {
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #d97d54 !important;
+}
+
+/* Media Querries */
+
+@media (min-width: 992px) {
+    .container.text-center.my-5 {
+        margin-top: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    section.mt-5 {
+        margin-top: 2rem !important;
+    }
+
+    footer.py-3 {
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+    }
+    
+    /* Slightly reduce navbar height on desktop */
+    .navbar {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+    }
+}
