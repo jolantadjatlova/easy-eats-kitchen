@@ -49,6 +49,7 @@ The application focuses on clean UX design, accessibility, and secure authentica
 - [Technologies Used](#technologies-used)
 
 - [Testing](#testing)
+  - [Automated Testing](#automated-testing)
   - [Bugs](#bugs)
   - [Responsiveness Test](#responsiveness-test)
   - [Code Validation](#code-validation)
@@ -483,6 +484,23 @@ The application uses **PostgreSQL** as the production database (via Heroku) and 
 [Back to contents](#contents)
 
 ---
+### Automated Testing
+
+Automated testing was implemented using Django’s built-in testing framework.
+
+Tests were written for:
+- Models (data integrity and relationships)
+- Forms (validation of required fields)
+- Views (page loading, authentication, permissions, and CRUD functionality)
+
+All tests were run using the following command:
+
+`python manage.py test --verbosity=2`
+
+This command displays individual test cases and confirms that all components of the application behave as expected.
+
+![Automated tests passing](docs/automated_tests.png)
+
 
 ### Bugs
 
