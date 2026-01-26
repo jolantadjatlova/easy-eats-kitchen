@@ -452,11 +452,30 @@ The application uses **One-to-Many** relationships:
 ### Database Implementation
 
 The application uses **PostgreSQL** as the production database (via Heroku) and SQLite3 for local development. Django's ORM abstracts the database layer, allowing the same models to work with both database systems seamlessly.
+
+**Production Database:**
+- PostgreSQL (managed by Heroku Postgres)
+- Connection configured via `DATABASE_URL` environment variable
+- Parsed using `dj-database-url` package
+
+**Local Development Database:**
+- SQLite3 (Django default)
+- Stored in `db.sqlite3` file (excluded from git)
+
 [Back to contents](#contents)
 
 ---
 
 ## CRUD Functionality
+
+The application provides full CRUD (Create, Read, Update, Delete) functionality for recipe management:
+
+| Operation | View | Access | Description |
+|-----------|------|--------|-------------|
+| **Create** | `add_recipe` | Authenticated users | Create new recipes with title, category, image, ingredients, and method using a form with rich text editor |
+| **Read** | `recipes_list`, `recipes_by_category`, `my_recipes` | Public (general recipes) / Authenticated (personal recipes) | Browse, search, and view recipe details with accordion interface |
+| **Update** | `edit_recipe` | Recipe owner only | Edit existing recipes with pre-populated form data |
+| **Delete** | `delete_recipe` | Recipe owner only | Delete recipes with confirmation step to prevent accidents |
 
 
 
