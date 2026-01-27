@@ -49,12 +49,12 @@ h1, h2, h3, h4, h5 {
 
 /* Category card hover effects */
 .category-img {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
 }
 
 .category-img:hover {
     transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(217, 125, 84, 0.4);
 }
 
 a:has(.category-img):hover .category-name {
