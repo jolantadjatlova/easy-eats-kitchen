@@ -81,10 +81,6 @@ The application focuses on clean UX design, accessibility, and secure authentica
 
 ### The 5 Planes of UX
 
-[Back to contents](#contents)
-
----
-
 #### 1. Strategy
 
 ##### Purpose
@@ -106,10 +102,6 @@ The application focuses on clean UX design, accessibility, and secure authentica
 - Apply UX best practices, including intuitive navigation and responsive design.
 - Use consistent styling and clear typography to support readability and usability.
 
-
-[Back to contents](#contents)
-
----
 
 #### 2. Scope
 
@@ -133,10 +125,6 @@ The application focuses on clean UX design, accessibility, and secure authentica
 - Accessible text and color contrast for readability.
 
 
-[Back to contents](#contents)
-
----
-
 #### 3. Structure
 
 ##### Interaction Design
@@ -152,21 +140,12 @@ A persistent navigation bar provides access to key areas of the site, including 
 Users arrive on the homepage and can immediately browse or search for recipes. Authenticated users are able to add and manage recipes, while public users can continue browsing without registering.
 
 
-[Back to contents](#contents)
-
----
-
 #### 4. Skeleton
 
 Wireframes were used to plan page layout, navigation placement, and content hierarchy before visual styling was applied. Key interface elements such as the navigation bar, search functionality, recipe cards, and forms were positioned to ensure clarity and ease of use across different screen sizes.
 
 The wireframes created can be viewed in the [Wireframes](#wireframes) section.
 
-
-
-[Back to contents](#contents)
-
----
 
 #### 5. Surface
 
@@ -192,11 +171,6 @@ Further visual decisions are detailed in the [Typography](#typography) and [Colo
 - To receive clear feedback when performing actions such as creating, editing, or deleting content.
 
 
-
-[Back to contents](#contents)
-
----
-
 ### User Stories
 
 #### Public Users
@@ -220,12 +194,6 @@ Further visual decisions are detailed in the [Typography](#typography) and [Colo
 
 ## Design Choices
 
-
-
-[Back to contents](#contents)
-
----
-
 ### Wireframes
 
 These wireframes were created using [Balsamiq](https://balsamiq.com/) during the Scope Plane part of the design and planning process for this project.
@@ -244,9 +212,6 @@ These wireframes were created using [Balsamiq](https://balsamiq.com/) during the
 - [404 Page](docs/404_page_wireframes.png)
 - [500 Page](docs/500_page_wireframes.png)
 
-[Back to contents](#contents)
-
----
 
 ### Typography
 
@@ -255,10 +220,6 @@ These wireframes were created using [Balsamiq](https://balsamiq.com/) during the
 - Varying font weights are used to establish clear visual hierarchy between headings, navigation elements, and content text.  
 - This typography pairing supports a welcoming and approachable interface while keeping the layout clear and easy to navigate.
 
-
-[Back to contents](#contents)
-
----
 
 ### Colour Scheme
 
@@ -272,17 +233,11 @@ A contrast grid was used to ensure that text and interactive elements meet acces
 
 ![Easy Eats Kitchen Contrast Grid](docs/easy-eats-contrast-grid.png)
 
-
-
 [Back to contents](#contents)
-
 ---
 
 ### Images
 
-
-
-[Back to contents](#contents)
 
 ---
 
@@ -291,6 +246,7 @@ A contrast grid was used to ensure that text and interactive elements meet acces
 
 
 [Back to contents](#contents)
+
 ## Agile Development Process
 
 Easy Eats Kitchen was developed using an iterative Agile approach, focusing on delivering a clear and user-friendly Minimum Viable Product (MVP). Development was carried out in small, manageable stages, allowing functionality to be built, tested, and refined incrementally.
@@ -332,22 +288,6 @@ Each issue included clear acceptance criteria and was linked to the relevant sta
 #### MoSCoW Prioritization
 
 The MoSCoW prioritisation method was used to classify tasks as Must Have, Should Have or Could Have. This helped ensure that essential functionality was delivered within the project timeframe while allowing flexibility for future enhancements.
-
-
-[Back to contents](#contents)
-
----
-
-### Images
-
-
-
-[Back to contents](#contents)
-
----
-
-### Responsiveness
-
 
 
 [Back to contents](#contents)
@@ -484,6 +424,29 @@ The application provides full CRUD (Create, Read, Update, Delete) functionality 
 ---
 
 ## Security Features
+
+### Authentication & Authorisation
+- User authentication is implemented using **Django Allauth**.
+- Only authenticated users can access protected functionality such as creating, editing, and deleting recipes.
+- Users are restricted to editing and deleting **only their own recipes**.
+
+### Access Control
+- Django’s `@login_required` decorator is used to protect private views.
+- Unauthorised access attempts redirect users to the login page.
+
+### Form Validation
+- Django ModelForms are used to validate user input.
+- Required fields and data types are enforced automatically by Django.
+- Invalid form submissions are rejected with clear user feedback messages.
+
+### CSRF Protection
+- Django’s built-in Cross-Site Request Forgery (CSRF) protection is enabled on all forms.
+- CSRF tokens prevent unauthorised or malicious form submissions.
+
+### Environment Variables & Secure Configuration
+- Sensitive data such as `SECRET_KEY`, database credentials, and configuration values are stored in environment variables.
+- No sensitive information is committed to the repository.
+- `DEBUG` mode is controlled via environment variables and defaults to `False` in production.
 
 
 [Back to contents](#contents)
