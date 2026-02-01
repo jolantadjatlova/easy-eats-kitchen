@@ -469,6 +469,37 @@ The application provides full CRUD (Create, Read, Update, Delete) functionality 
 
 ## Technologies Used
 
+| Technology | Purpose | Type |
+|-------------|----------|------|
+| [Git](https://git-scm.com/) | Track changes and manage version control throughout development. | Tool |
+| [GitHub](https://github.com/) | Store the project repository and manage commits and issues. | Tool |
+| [VS Code](https://code.visualstudio.com/) | Write, edit, and organise all project code. | Tool |
+| [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) | Structure page content and templates. | Language |
+| [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) | Style the user interface and control layout and presentation. | Language |
+| [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) | Enhance interactivity and user experience. | Language |
+| [Python](https://www.python.org/) | Implement backend logic, views, and data handling. | Language |
+| [Django](https://www.djangoproject.com/) | Backend framework used to build the full-stack application. | Framework |
+| [Django Allauth](https://django-allauth.readthedocs.io/en/latest/) | Handle user authentication and account management. | Library |
+| [Bootstrap 5](https://getbootstrap.com/) | Provide responsive layout and UI components. | Library |
+| [Django Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/) | Improve form rendering and styling with Bootstrap. | Library |
+| [Django Summernote](https://github.com/summernote/django-summernote) | Provide a rich text editor for recipe content. | Library |
+| [PostgreSQL](https://www.postgresql.org/) | Production database for storing application data. | Database |
+| [SQLite3](https://www.sqlite.org/index.html) | Local development database. | Database |
+| [Cloudinary](https://cloudinary.com/) | Store and serve user-uploaded recipe images. | Cloud Service |
+| [Heroku](https://www.heroku.com/) | Deploy and host the live application. | Platform |
+| [Balsamiq](https://balsamiq.com/) | Create wireframes for planning page layout and user flow. | Tool |
+| [Coolors](https://coolors.co/) | Generate and refine the project colour palette. | Tool |
+| [Eight Shapes Contrast Grid](https://contrast-grid.eightshapes.com/) | Test colour contrast and accessibility compliance. | Tool |
+| [Squoosh](https://squoosh.app/) | Compress and convert images to WebP format for improved performance. | Tool |
+| [remove.bg](https://www.remove.bg/) | Remove image backgrounds for cleaner visuals and consistent presentation. | Tool |
+| [Google Fonts](https://fonts.google.com/) | Import and apply typography used across the site. | Library |
+| [Font Awesome](https://fontawesome.com/) | Add icons to enhance usability and visual clarity. | Library |
+| [ChatGPT](https://chat.openai.com/) | Assist with content writing, code refinement, and AI-generated imagery. | AI |
+| [W3C HTML Validation Service](https://validator.w3.org/) | Validate HTML structure and syntax. | Tool |
+| [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) | Validate CSS syntax and styling rules. | Tool |
+| [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) | Test performance, accessibility, and best practices. | Tool |
+| [WAVE](https://wave.webaim.org/) | Evaluate accessibility compliance. | Tool |
+
 
 
 [Back to contents](#contents)
