@@ -75,10 +75,6 @@ The application focuses on clean UX design, accessibility, and secure authentica
 
 ## UX
 
-[Back to contents](#contents)
-
----
-
 ### The 5 Planes of UX
 
 #### 1. Strategy
@@ -238,11 +234,29 @@ A contrast grid was used to ensure that text and interactive elements meet acces
 
 ### Images
 
+The background image used on the *Easy Eats Kitchen* homepage was **generated using ChatGPT (AI image generation)**.
+
+Category images (*15 Min Meals*, *Meat*, *Fish*, *Vegetarian*) were also **AI-generated using ChatGPT** to maintain a consistent visual style across the application and support category-based navigation.
+
+Recipe images are optional and can be uploaded by authenticated users when creating or editing a recipe. These images are displayed within recipe views and are stored and served using **Cloudinary**.
+
+All imagery is designed to remain **non-intrusive**, ensuring that text, navigation, and interactive elements remain clear and accessible.
+
+All images include **descriptive `alt` attributes** to support accessibility.
 
 ---
-
 ### Responsiveness
 
+The *Easy Eats Kitchen* application is fully responsive and adapts to different screen sizes using **Bootstrap’s responsive grid system**.
+
+The layout, typography, and interactive elements adjust to maintain usability across mobile, tablet, and desktop devices.
+
+- Navigation collapses into a mobile-friendly menu on smaller screens.
+- Images, forms, and recipe content scale appropriately without layout issues.
+- Buttons and inputs remain accessible and easy to use on touch devices.
+
+Responsiveness was tested using browser developer tools and manual viewport resizing.  
+Further details can be found in the **Responsiveness Test** section.
 
 
 [Back to contents](#contents)
