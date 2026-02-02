@@ -74,11 +74,8 @@ The application focuses on clean UX design, accessibility, and secure authentica
 - [Final Tidy-Up](#final-tidy-up)
 
 ## UX
-
 ### The 5 Planes of UX
-
 #### 1. Strategy
-
 ##### Purpose
 - Provide a simple and welcoming platform for users to discover and share recipes.
 - Allow users to quickly find meal ideas based on time, category, or personal preferences.
@@ -153,7 +150,6 @@ Further visual decisions are detailed in the [Typography](#typography) and [Colo
 [Back to contents](#contents)
 
 ---
-
 ### User Goals
 
 #### Public Users
@@ -310,12 +306,197 @@ The MoSCoW prioritisation method was used to classify tasks as Must Have, Should
 
 ## Features
 
-[Back to contents](#contents)
+### Existing Features
+
+#### Navbar
+
+A single, responsive navigation bar is used across the entire site to provide consistent access to key areas of the application.
+
+The navbar displays the *Easy Eats Kitchen* brand on the left and navigation links on the right. Navigation options update dynamically based on authentication status.
+
+On smaller screens, the navbar collapses into a hamburger menu using Bootstrap’s built-in responsive behaviour.
+
+Key features include:
+- Clear site branding
+- Authentication-aware navigation links
+- Hover and focus styles to indicate active links
+- Responsive collapse for mobile and tablet devices
+
+[Desktop navbar](docs/navbar-desktop.png "Desktop navbar")
+
+[Mobile navbar collapsed](docs/navbar-mobile-collapsed.png "Mobile navbar collapsed")
+
+[Mobile navbar expanded](docs/navbar-mobile-expanded.png "Mobile navbar expanded")
 
 ---
 
-### Existing Features
+#### Home Page
 
+The home page acts as a welcoming entry point, allowing users to begin browsing recipes immediately without needing to register.
+
+The page includes:
+- A prominent recipe search bar
+- A short welcome message introducing the site’s purpose
+- Category-based navigation using visual imagery
+
+The layout is clean and uncluttered, encouraging quick discovery of recipes while remaining accessible across all screen sizes.
+
+[Desktop home view](docs/home-desktop.png "Home page desktop view")
+
+[Tablet home view](docs/home-tablet.png "Home page tablet view")
+
+[Mobile home view](docs/home-mobile.png "Home page mobile view")
+
+---
+
+#### Recipe Search
+
+Users can search for recipes using keywords to quickly find relevant results.
+
+The search functionality:
+- Matches recipe titles, ingredients, and method content
+- Is available to both public and authenticated users
+- Updates results clearly based on the entered query
+
+This feature improves usability by reducing the time needed to locate specific recipes.
+
+[Recipe search bar](docs/search-bar.png "Recipe search bar")
+
+---
+
+#### Category Browsing
+
+Recipes are organised into predefined categories to support intuitive navigation.
+
+Available categories include:
+- 15 min meals
+- Meat
+- Fish
+- Vegetarian
+
+Each category page displays only relevant recipes and supports optional keyword searching within that category.
+
+[Category page view](docs/category-view.png "Category page view")
+
+---
+
+#### User Registration
+
+New users can register for an account using a secure and user-friendly form.
+
+The registration process includes:
+- Clear form labels and guidance
+- Automatic validation of required fields
+- Password requirements enforced by Django
+
+Upon successful registration, users gain access to recipe management features.
+
+[Registration page](docs/register.png "User registration page")
+
+---
+
+#### Login and Logout
+
+Registered users can log in and out securely using Django Allauth.
+
+Key features include:
+- Secure authentication handling
+- Clear success messages on login and logout
+- Navigation updates based on authentication status
+- Redirects to appropriate pages after authentication actions
+
+[Login page](docs/login.png "Login page")
+
+[Logout confirmation](docs/logout.png "Logout confirmation")
+
+---
+
+#### Add Recipe
+
+Authenticated users can create new recipes using a structured form.
+
+The add recipe form allows users to:
+- Enter a recipe title
+- Select a category
+- Upload an optional image
+- Add ingredients and method steps using a rich text editor
+
+Successful submissions display confirmation feedback and redirect users to their personal recipe list.
+
+[Add recipe form](docs/add-recipe.png "Add recipe form")
+
+---
+
+#### Edit Recipe
+
+Users can edit recipes they own.
+
+Key features include:
+- Edit access restricted to recipe owners only
+- Pre-populated form fields for ease of editing
+- Confirmation feedback after successful updates
+
+This ensures users maintain full control over their own content.
+
+[Edit recipe form](docs/edit-recipe.png "Edit recipe form")
+
+---
+
+#### Delete Recipe
+
+Users can delete recipes they own through a confirmation step.
+
+Key features include:
+- Ownership-based access control
+- Confirmation prompt to prevent accidental deletion
+- Clear success message after deletion
+
+[Delete recipe confirmation](docs/delete-recipe.png "Delete recipe confirmation")
+
+---
+
+#### My Recipes Page
+
+The My Recipes page provides authenticated users with a central place to manage their own content.
+
+Features include:
+- Display of only the logged-in user’s recipes
+- Recipes ordered by most recent creation
+- Keyword search within personal recipes
+- Quick access to edit and delete actions
+
+[My Recipes page](docs/my-recipes.png "My Recipes page")
+
+---
+
+#### User Feedback Messages
+
+Clear feedback messages are shown following key user actions.
+
+Messages are displayed for:
+- Successful recipe creation, editing, and deletion
+- Invalid form submissions
+- Authentication-related actions
+
+Feedback messages improve clarity and user confidence throughout the application.
+
+[Success message example](docs/success-message.png "Example of user feedback message")
+
+---
+
+#### Error Pages
+
+Custom error pages are implemented to improve user experience when an issue occurs.
+
+Included error pages:
+- 404 – Page Not Found
+- 500 – Server Error
+
+These pages provide clear messaging and maintain visual consistency across the site.
+
+[404 error page](docs/404.png "404 error page")
+
+[500 error page](docs/500.png "500 error page")
 
 
 [Back to contents](#contents)
