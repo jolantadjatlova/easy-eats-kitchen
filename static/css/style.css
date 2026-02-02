@@ -127,6 +127,13 @@ a:has(.category-img):hover .category-name {
     color: #ffffff !important;
 }
 
+/* Button base styles */
+.btn-outline-secondary {
+    color: #3a2f29;
+    border-color: #3a2f29;
+    background-color: rgba(245, 241, 235, 0.8);
+}
+
 /* Button hover effects */
 .btn-outline-secondary:hover {
     background-color: #d97d54 !important;
