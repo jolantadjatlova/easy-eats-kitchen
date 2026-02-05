@@ -770,6 +770,24 @@ This command displays individual test cases and confirms that all components of 
 
 ### Lighthouse Testing
 
+Easy Eats Kitchen was tested using **Chrome DevTools Lighthouse** to evaluate overall site quality across key performance and accessibility criteria.
+
+The following areas were assessed:
+
+- **Performance** – measures page load speed and responsiveness.  
+- **Accessibility** – evaluates usability for all users, including those using assistive technologies.  
+- **Best Practices** – checks adherence to modern web development standards.  
+- **SEO** – assesses search engine optimisation and discoverability.
+
+---
+
+**Test for Mobile:**  
+
+![Lighthouse Mobile Test](docs/easy_eats_lighthouse_mobile.png)
+
+**Test for Desktop:**  
+
+![Lighthouse Desktop Test](docs/easy_eats_lighthouse_desktop.png)
 
 
 [Back to contents](#contents)
