@@ -712,6 +712,16 @@ This command displays individual test cases and confirms that all components of 
 
 ### Bugs
 
+| **Bug** | **Status** | **Description** | **Steps to Resolve** |
+|--------|------------|-----------------|----------------------|
+| Low contrast search results message | Fixed | The “Found X matching recipes” message appeared in a default Bootstrap grey, making it difficult to read against the background image. | Added custom styling with improved contrast, background colour, border, and font weight to enhance readability. |
+| Long recipe content caused layout overflow on mobile | Fixed | Recipes with long ingredient lists or method steps caused vertical overflow and layout issues on smaller screens. | Applied a maximum height and enabled vertical scrolling within the recipe content container. |
+| Category dropdown difficult to use on mobile | Fixed | Category dropdown links were too small on mobile devices, making them difficult to tap accurately. | Increased padding and added hover and focus styles to improve touch accessibility on smaller screens. |
+| Unauthorised users could access edit/delete URLs | Fixed | Although edit and delete buttons were hidden, users could manually access edit or delete URLs for recipes they did not own. | Enforced ownership checks at view level using `get_object_or_404()` filtered by the authenticated user. |
+| Search trimming was not applied | Fixed | Searches containing leading or trailing spaces returned no results even when matching recipes existed. | Trimmed whitespace from the search query using `.strip()` before applying database filters. |
+| Missing ownership filtering on My Recipes page | Fixed | The My Recipes view did not initially filter recipes by the logged-in user, causing recipes created by other users to appear. | Updated the queryset to filter by `owner=request.user` so only the authenticated user’s recipes are displayed. |
+| Static files duplicated locally and missing in production | Fixed | After configuring static files, CSS appeared duplicated locally and some static images did not load on Heroku despite working locally. | Reviewed static files configuration, corrected file paths, and ensured static assets were available for WhiteNoise in production. |
+
 
 [Back to contents](#contents)
 
@@ -969,6 +979,14 @@ os.environ.setdefault("CLOUDINARY_API_SECRET", "your-api-secret")
 
 ### To Fork the Project
 
+Forking the GitHub repository allows you to create a duplicate of a local repository. This is done so that modifications to the copy can be performed without compromising the original repository.
+
+- Log in to GitHub.
+- Locate the repository.
+- Click to open it.
+- The fork button is located on the right side of the repository menu.
+- To copy the repository to your GitHub account, click the button.
+
 
 
 [Back to contents](#contents)
@@ -976,6 +994,17 @@ os.environ.setdefault("CLOUDINARY_API_SECRET", "your-api-secret")
 ---
 
 ### To Clone the Project
+
+To create a local copy of the repository on your machine, follow these steps:
+
+1. Log in to your GitHub account.
+2. Navigate to the main page of the repository.
+3. Click the **Code** button and copy the HTTPS URL.
+4. Open your local IDE or terminal.
+5. Change the current working directory to the location where you want the cloned directory.
+6. Run the following command:
+   - `git clone <repository-url>`
+7. Press **Enter** to create your local clone.
 
 
 
