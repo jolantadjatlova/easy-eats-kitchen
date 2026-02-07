@@ -719,6 +719,19 @@ This command displays individual test cases and confirms that all components of 
 
 ### Responsiveness Test
 
+| **Page** | **Mobile** | **Tablet** | **Desktop** | **Notes** |
+|-----------|------------|------------|-------------|-----------|
+| **Home / Landing** | ![Home Mobile](docs/home-mobile.png) | ![Home Tablet](docs/home-tablet.png) | ![Home Desktop](docs/home-desktop.png) | Works as expected |
+| **Recipes (All)** | ![Recipes Mobile](docs/recipes-mobile.png) | ![Recipes Tablet](docs/recipes-tablet.png) | ![Recipes Desktop](docs/recipes-desktop.png) | Works as expected |
+| **Recipe Search Results** | ![Search Results Mobile](docs/search-results-mobile.png) | ![Search Results Tablet](docs/search-results-tablet.png) | ![Search Results Desktop](docs/search-results-desktop.png) | Works as expected |
+| **Category View** | ![Category Mobile](docs/category-mobile.png) | ![Category Tablet](docs/category-tablet.png) | ![Category Desktop](docs/category-view-desktop.png) | Works as expected |
+| **My Recipes** | ![My Recipes Mobile](docs/my-recipes-mobile.png) | ![My Recipes Tablet](docs/my-recipes-tablet.png) | ![My Recipes Desktop](docs/my-recipes-desktop.png) | Works as expected |
+| **Add Recipe Form** | ![Add Recipe Mobile](docs/add-recipe-mobile.png) | ![Add Recipe Tablet](docs/add-recipe-tablet.png) | ![Add Recipe Desktop](docs/add-recipe-desktop.png) | Works as expected |
+| **Edit Recipe Form** | ![Edit Recipe Mobile](docs/edit-recipe-mobile.png) | ![Edit Recipe Tablet](docs/edit-recipe-tablet.png) | ![Edit Recipe Desktop](docs/edit-recipe-desktop.png) | Works as expected |
+| **Delete Confirmation** | ![Delete Mobile](docs/delete-mobile.png) | ![Delete Tablet](docs/delete-tablet.png) | ![Delete Desktop](docs/delete-recipe-desktop.png) | Works as expected |
+| **Login** | ![Login Mobile](docs/login-mobile.png) | ![Login Tablet](docs/login-tablet.png) | ![Login Desktop](docs/login-desktop.png) | Works as expected |
+| **Register** | ![Register Mobile](docs/register-mobile.png) | ![Register Tablet](docs/register-tablet.png) | ![Register Desktop](docs/register-desktop.png) | Works as expected |
+
 
 
 [Back to contents](#contents)
