@@ -755,6 +755,28 @@ This command displays individual test cases and confirms that all components of 
 
 ### User Story Testing
 
+### Public Users
+
+| User Story | Result | Pass | Evidence |
+|-----------|--------|------|----------|
+| As a public user, I want to browse a list of recipes and view individual recipe details so that I can find inspiration and cook a meal. | Users can view all recipes and access individual recipe detail pages without logging in. | Yes | [Recipes List View](docs/recipes-list.png "Recipes List View")<br>[Recipe Detail View](docs/recipe-detail.png "Recipe Detail View") |
+| As a public user, I want to filter recipes by category so that I can quickly find recipes that suit my preferences. | Recipes are filtered correctly when a category is selected. | Yes | [Category Filter View](docs/category-filter.png "Category Filter View") |
+| As a public user, I want to search for recipes by keyword so that I can locate specific dishes quickly. | Keyword search filters recipes by title, ingredients, and method. | Yes | [Search Results View](docs/search-results.png "Search Results View") |
+
+---
+
+### Authenticated Users
+
+| User Story | Result | Pass | Evidence |
+|-----------|--------|------|----------|
+| As an authenticated user, I want to create an account so that I can create and manage my own recipes. | Users can register successfully using a secure sign-up form. | Yes | [User Registration](docs/user-registration.png "User Registration") |
+| As an authenticated user, I want to log in to my account so that I can access recipe management features. | Registered users can log in and access protected pages. | Yes | [User Login](docs/user-login.png "User Login") |
+| As an authenticated user, I want to create new recipes so that I can save and share my own recipes. | Logged-in users can add new recipes using a validated form. | Yes | [Add Recipe Form](docs/add-recipe.png "Add Recipe Form")<br>[My Recipes View](docs/my-recipes.png "My Recipes View") |
+| As an authenticated user, I want to edit my own recipes so that I can update ingredients or method steps when needed. | Users can edit only recipes they own. | Yes | [Edit Recipe Form](docs/edit-recipe.png "Edit Recipe Form") |
+| As an authenticated user, I want to delete my own recipes so that I can remove recipes I no longer want. | Users can delete their own recipes after confirmation. | Yes | [Delete Recipe Confirmation](docs/delete-recipe.png "Delete Recipe Confirmation") |
+
+
+
 
 
 [Back to contents](#contents)
