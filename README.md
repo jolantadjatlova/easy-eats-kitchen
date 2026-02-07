@@ -831,6 +831,11 @@ The following areas were assessed:
 
 ### Browser Testing
 
+| **Browser** | **Pages Tested** | **Result** |
+|------------|-----------------|-----------|
+| Google Chrome | Home, Recipes, Category, Forms, Authentication | Works as expected |
+| Mozilla Firefox | Home, Recipes, Category, Forms, Authentication | Works as expected |
+| Microsoft Edge | Home, Recipes, Category, Forms, Authentication | Works as expected |
 
 [Back to contents](#contents)
 
@@ -838,11 +843,123 @@ The following areas were assessed:
 
 ## Deployment
 
-[Back to contents](#contents)
+The live deployed application can be found here:  
+[Easy Eats Kitchen on Heroku](https://easy-eats-kitchen-c0e4478907ac.herokuapp.com/)
+
+### Heroku Deployment
+
+This project uses **Heroku**, a Platform as a Service (PaaS), to deploy and host the application.
+
+Deployment steps are as follows (after creating a Heroku account):
+
+1. From the Heroku Dashboard, select **New** → **Create new app**.
+2. Enter a unique app name, select a region (EU/USA), and click **Create app**.
+3. In the app **Settings**, click **Reveal Config Vars** and add the required environment variables.
+
+**Config Vars**
+
+| Key | Value |
+|---|---|
+| `SECRET_KEY` | your secret key |
+| `DEBUG` | `False` |
+| `DATABASE_URL` | your PostgreSQL database URL |
+| `CLOUDINARY_CLOUD_NAME` | your Cloudinary cloud name |
+| `CLOUDINARY_API_KEY` | your Cloudinary API key |
+| `CLOUDINARY_API_SECRET` | your Cloudinary API secret |
+
+4. Ensure the following files exist in the repository:
+   - `requirements.txt`
+   - `Procfile`
+   - `.python-version`
+
+**Requirements**
+- Install dependencies:
+  - `pip3 install -r requirements.txt`
+- If you add packages, update the file:
+  - `pip3 freeze --local > requirements.txt`
+
+**Procfile**
+Create a `Procfile` containing:
+- `web: gunicorn easy_eats.wsgi`
+
+*(Replace `easy_eats` with your Django project name if different.)*
+
+**Python version**
+Add a `.python-version` file, for example:
+- `3.12.0`
+
+5. In the Heroku app **Deploy** tab, connect the app to the GitHub repository.
+6. Deploy the project using **Automatic Deploys** (recommended) or **Manual Deploy** from the `main` branch.
+7. Once deployed, run database migrations:
+   - `python manage.py migrate`
+8. Create a superuser (optional):
+   - `python manage.py createsuperuser`
 
 ---
 
-### To Deploy the Project
+### Cloudinary
+
+This project uses **Cloudinary** to store and serve uploaded recipe images, as Heroku does not persist user-uploaded media.
+
+To set up Cloudinary:
+1. Create a Cloudinary account.
+2. Copy your Cloud name, API key, and API secret from the Cloudinary dashboard.
+3. Add them to both your local `env.py` file and Heroku Config Vars.
+
+---
+
+### PostgreSQL Database
+
+This project uses **PostgreSQL** for the production database.
+
+To configure PostgreSQL:
+1. Create a PostgreSQL database (Heroku Postgres or another provider).
+2. Copy the database URL and add it to:
+   - your local `env.py` as `DATABASE_URL`
+   - Heroku Config Vars as `DATABASE_URL`
+
+---
+
+### WhiteNoise
+
+This project uses **WhiteNoise** to serve static files in production.
+
+WhiteNoise is enabled in `settings.py` by adding:
+- `whitenoise.middleware.WhiteNoiseMiddleware`
+
+and configuring static files storage:
+- `whitenoise.storage.CompressedManifestStaticFilesStorage`
+
+---
+
+### Local Development
+
+#### To Clone the Project
+
+1. Go to the GitHub repository.
+2. Click **Code** and copy the HTTPS link.
+3. In your terminal, run:
+   - `git clone <repository-url>`
+4. Install dependencies:
+   - `pip3 install -r requirements.txt`
+5. Create an `env.py` file in the project root and add the required environment variables.
+
+Example `env.py`:
+
+```python
+import os
+
+os.environ.setdefault("SECRET_KEY", "your-secret-key")
+os.environ.setdefault("DEBUG", "True")
+os.environ.setdefault("DATABASE_URL", "your-database-url")
+os.environ.setdefault("CLOUDINARY_CLOUD_NAME", "your-cloud-name")
+os.environ.setdefault("CLOUDINARY_API_KEY", "your-api-key")
+os.environ.setdefault("CLOUDINARY_API_SECRET", "your-api-secret")
+```
+
+6. Run migrations and start the development server:
+   - `python manage.py migrate`
+   - `python manage.py runserver`
 
 
 
