@@ -57,14 +57,18 @@ The application focuses on clean UX design, accessibility, and secure authentica
     - [CSS](#css)
     - [JavaScript](#javascript)
   - [User Story Testing](#user-story-testing)
-  - [Form Validation Testing](#form-validation-testing)
+  - [Accessibility Testing](#accessibility-testing)
   - [Lighthouse Testing](#lighthouse-testing)
   - [Browser Testing](#browser-testing)
 
 - [Deployment](#deployment)
-  - [To Deploy the Project](#to-deploy-the-project)
+  - [Heroku Deployment](#heroku-deployment)
+  - [Cloudinary](#cloudinary)
+  - [PostgreSQL Database](#postgresql-database)
+  - [WhiteNoise](#whitenoise)
+  - [Local Development](#local-development)
+    - [To Clone the Project](#to-clone-the-project)
   - [To Fork the Project](#to-fork-the-project)
-  - [To Clone the Project](#to-clone-the-project)
 
 - [Credits](#credits)
   - [Feedback, Advice and Support](#feedback-advice-and-support)
@@ -86,7 +90,7 @@ The application focuses on clean UX design, accessibility, and secure authentica
 - Easily browse and view recipes without needing to create an account.
 - Quickly search and filter recipes to find suitable meal ideas.
 - Access clear and readable recipe information, including ingredients and method steps.
-- Create an account to save, manage, and share personal recipes.
+- Create an account to create, manage, and publish personal recipes.
 - Access the website seamlessly across mobile, tablet, and desktop devices.
 
 ##### Project Goals
@@ -100,7 +104,7 @@ The application focuses on clean UX design, accessibility, and secure authentica
 
 ##### Functional Requirements
 - Users can browse a list of recipes without needing to create an account.
-- Users can view individual recipe detail pages containing ingredients and method steps.
+- Users can view full recipe details (ingredients and method steps) directly within the recipes list using an accordion layout.
 - Users can search for recipes using keywords.
 - Users can filter recipes by category.
 - Users can register for an account and log in securely.
@@ -124,7 +128,7 @@ The application focuses on clean UX design, accessibility, and secure authentica
 The website follows a simple and intuitive user flow focused on recipe discovery and management. Public users can browse, search, and filter recipes, while authenticated users can access additional features such as creating and managing their own recipes. Clear UI feedback is provided throughout user interactions.
 
 ##### Information Architecture
-Content is organised into clear sections including the homepage, recipe listings, recipe detail pages, and user account functionality. Categories are used to group recipes and support easy navigation. A consistent layout is maintained across all pages using Bootstrap’s grid system.
+Content is organised into clear sections including the homepage, recipe listings with an accordion interface for viewing full recipe details (ingredients and method), and user account functionality. Categories are used to group recipes and support easy navigation. A consistent layout is maintained across all pages using Bootstrap’s grid system.
 
 ##### Navigation Layout
 A persistent navigation bar provides access to key areas of the site, including Home, Categories, and user-specific options. The navigation collapses into a mobile-friendly menu on smaller screens to ensure usability across devices.
@@ -159,14 +163,13 @@ Further visual decisions are detailed in the [Typography](#typography) and [Colo
 #### Authenticated Users
 - To create an account and log in securely to access additional features.
 - To create, edit, and manage personal recipes in one place.
-- To interact with other users by leaving comments and sharing cooking tips.
 - To receive clear feedback when performing actions such as creating, editing, or deleting content.
 
 
 ### User Stories
 
 #### Public Users
-- As a public user, I want to browse a list of recipes and view individual recipe details so that I can find inspiration and cook a meal.  
+- As a public user, I want to browse a list of recipes and view full recipe details (ingredients and method steps) so that I can find inspiration and cook a meal.  
 - As a public user, I want to filter recipes by category so that I can quickly find recipes that suit my preferences.  
 - As a public user, I want to search for recipes by keyword so that I can locate specific dishes quickly.
 
@@ -176,7 +179,7 @@ Further visual decisions are detailed in the [Typography](#typography) and [Colo
 - As an authenticated user, I want to create new recipes so that I can save and share my own recipes.  
 - As an authenticated user, I want to edit my own recipes so that I can update ingredients or method steps when needed.  
 - As an authenticated user, I want to delete my own recipes so that I can remove recipes I no longer want.  
-- As an authenticated user, I want to leave comments on recipes so that I can share feedback and tips with other users.
+
 
 
 
@@ -505,6 +508,16 @@ These pages provide clear messaging and maintain visual consistency across the s
 
 ### Future Enhancements
 
+The following features were identified as potential improvements that could further enhance the functionality and scalability of *Easy Eats Kitchen* if additional development time were available:
+
+- **Recipe Comments**  
+  Allow authenticated users to leave comments on recipes to share feedback, tips, and variations. This would encourage user interaction while building on the existing authentication and ownership logic.
+
+- **Favourite Recipes**  
+  Enable users to save recipes to a personal favourites list for quick access. This could be implemented using a many-to-many relationship between users and recipes.
+
+- **Multiple Categories per Recipe**  
+  Extend the current category structure to allow recipes to belong to multiple categories (for example, a recipe could be categorised as both *Fish* and *15 Minute Meals*). This would involve changing the relationship between recipes and categories from one-to-many to many-to-many and updating the filtering logic accordingly.
 
 
 [Back to contents](#contents)
@@ -782,7 +795,7 @@ This command displays individual test cases and confirms that all components of 
 
 | User Story | Result | Pass | Evidence |
 |-----------|--------|------|----------|
-| As a public user, I want to browse a list of recipes and view individual recipe details so that I can find inspiration and cook a meal. | Users can view all recipes and access individual recipe detail pages without logging in. | Yes | [Recipes List View](docs/recipes-list.png "Recipes List View")<br>[Recipe Detail View](docs/recipe-detail.png "Recipe Detail View") |
+| As a public user, I want to browse a list of recipes and view full recipe details so that I can find inspiration and cook a meal. | Users can view all recipes and expand individual recipes to see ingredients and method steps without logging in. | Yes | [Recipes List View](docs/recipes-list.png "Recipes List View")<br>[Expanded Recipe View](docs/expanded-recipe-view.png "Expanded Recipe View") |
 | As a public user, I want to filter recipes by category so that I can quickly find recipes that suit my preferences. | Recipes are filtered correctly when a category is selected. | Yes | [Category Filter View](docs/category-filter.png "Category Filter View") |
 | As a public user, I want to search for recipes by keyword so that I can locate specific dishes quickly. | Keyword search filters recipes by title, ingredients, and method. | Yes | [Search Results View](docs/search-results.png "Search Results View") |
 
@@ -799,19 +812,25 @@ This command displays individual test cases and confirms that all components of 
 | As an authenticated user, I want to delete my own recipes so that I can remove recipes I no longer want. | Users can delete their own recipes after confirmation. | Yes | [Delete Recipe Confirmation](docs/delete-recipe.png "Delete Recipe Confirmation") |
 
 
-
-
-
 [Back to contents](#contents)
 
 ---
+### Accessibility Testing
 
-### Form Validation Testing
+Accessibility best practices were applied throughout the site, including:
 
+- Semantic HTML structure  
+- Clear and consistent navigation  
+- Appropriate heading hierarchy  
+- Sufficient colour contrast  
 
-[Back to contents](#contents)
+The **[WAVE Web Accessibility Evaluation Tool](https://wave.webaim.org/)** was used to evaluate accessibility on key pages of the site. Minor warnings were identified, mainly relating to empty or redundant links generated by icon-based elements. These do not affect usability or prevent users from accessing content.
 
----
+Accessibility testing was carried out on the following pages:
+
+- [WAVE accessibility evaluation – Home page](docs/accessibility-home.png)
+- [WAVE accessibility evaluation – Recipes page](docs/accessibility-recipes.png)
+- [WAVE accessibility evaluation – Register page](docs/accessibility-register.png)
 
 ### Lighthouse Testing
 
@@ -990,26 +1009,6 @@ Forking the GitHub repository allows you to create a duplicate of a local reposi
 
 
 [Back to contents](#contents)
-
----
-
-### To Clone the Project
-
-To create a local copy of the repository on your machine, follow these steps:
-
-1. Log in to your GitHub account.
-2. Navigate to the main page of the repository.
-3. Click the **Code** button and copy the HTTPS URL.
-4. Open your local IDE or terminal.
-5. Change the current working directory to the location where you want the cloned directory.
-6. Run the following command:
-   - `git clone <repository-url>`
-7. Press **Enter** to create your local clone.
-
-
-
-[Back to contents](#contents)
-
 ---
 
 ## Credits
