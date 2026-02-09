@@ -21,7 +21,7 @@
         placeholder="Search recipes"
         aria-label="Search recipes"
         value="{{ q|default:'' }}"
-      />
+      >
       <button
         class="btn btn-search"
         type="submit"
@@ -87,7 +87,7 @@
                       src="{{ r.image.url }}"
                       alt="{{ r.title }}"
                       class="img-fluid rounded-circle recipe-image"
-                    />
+                    >
                   {% else %}
                     <div class="d-flex align-items-center justify-content-center rounded-circle mx-auto recipe-image-placeholder">
                       <i class="fa-solid fa-utensils fa-2x text-muted"></i>
