@@ -1,4 +1,4 @@
-html{% load static %}
+{% load static %}
 
 {% url 'recipes:home' as home_url %}
 {% url 'recipes:recipes_list' as recipes_url %}
@@ -15,23 +15,9 @@ html{% load static %}
     <title>Easy Eats Kitchen</title>
 
     <!-- Favicon -->
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="{% static 'favicon/apple-touch-icon.png' %}"
-    >
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="{% static 'favicon/favicon-32x32.png' %}"
-    >
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="{% static 'favicon/favicon-16x16.png' %}"
-    >
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
     <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
     <link rel="icon" type="image/x-icon" href="{% static 'favicon/favicon.ico' %}">
 
@@ -60,9 +46,12 @@ html{% load static %}
   </head>
 
   <body class="d-flex flex-column min-vh-100">
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #3a2f29">
       <div class="container-fluid px-3">
+
+        <!-- Logo -->
         <a class="navbar-brand d-flex align-items-center" href="{{ home_url }}">
           <img
             src="{% static 'images/easy_eats_logo.png' %}"
@@ -72,6 +61,7 @@ html{% load static %}
           >
         </a>
 
+        <!-- Mobile toggle -->
         <button
           class="navbar-toggler"
           type="button"
@@ -86,9 +76,10 @@ html{% load static %}
 
         <div class="collapse navbar-collapse" id="mainNavbar">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
             <!-- Home -->
             <li class="nav-item">
-              
+              <a
                 href="{{ home_url }}"
                 class="nav-link{% if request.path == home_url %} active{% endif %}"
                 {% if request.path == home_url %}aria-current="page"{% endif %}
@@ -99,7 +90,7 @@ html{% load static %}
 
             <!-- Recipes -->
             <li class="nav-item">
-              
+              <a
                 href="{{ recipes_url }}"
                 class="nav-link{% if request.path == recipes_url %} active{% endif %}"
                 {% if request.path == recipes_url %}aria-current="page"{% endif %}
@@ -110,7 +101,7 @@ html{% load static %}
 
             <!-- Categories dropdown -->
             <li class="nav-item dropdown">
-              
+              <a
                 class="nav-link dropdown-toggle"
                 href="#"
                 id="categoriesDropdown"
@@ -128,10 +119,14 @@ html{% load static %}
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="{% url 'recipes:recipes_by_category' 'meat' %}">Meat</a>
+                  <a class="dropdown-item" href="{% url 'recipes:recipes_by_category' 'meat' %}">
+                    Meat
+                  </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="{% url 'recipes:recipes_by_category' 'fish' %}">Fish</a>
+                  <a class="dropdown-item" href="{% url 'recipes:recipes_by_category' 'fish' %}">
+                    Fish
+                  </a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="{% url 'recipes:recipes_by_category' 'vegetarian' %}">
@@ -144,7 +139,7 @@ html{% load static %}
             {% if user.is_authenticated %}
               <!-- My Recipes -->
               <li class="nav-item">
-                
+                <a
                   href="{{ my_recipes_url }}"
                   class="nav-link{% if request.path == my_recipes_url %} active{% endif %}"
                   {% if request.path == my_recipes_url %}aria-current="page"{% endif %}
@@ -155,7 +150,7 @@ html{% load static %}
 
               <!-- Logout -->
               <li class="nav-item">
-                
+                <a
                   href="{{ logout_url }}"
                   class="nav-link{% if request.path == logout_url %} active{% endif %}"
                   {% if request.path == logout_url %}aria-current="page"{% endif %}
@@ -166,7 +161,7 @@ html{% load static %}
             {% else %}
               <!-- Login -->
               <li class="nav-item">
-                
+                <a
                   href="{{ login_url }}"
                   class="nav-link{% if request.path == login_url %} active{% endif %}"
                   {% if request.path == login_url %}aria-current="page"{% endif %}
@@ -177,7 +172,7 @@ html{% load static %}
 
               <!-- Register -->
               <li class="nav-item">
-                
+                <a
                   href="{{ signup_url }}"
                   class="nav-link{% if request.path == signup_url %} active{% endif %}"
                   {% if request.path == signup_url %}aria-current="page"{% endif %}
@@ -191,45 +186,41 @@ html{% load static %}
       </div>
     </nav>
 
-    <!-- Page content -->
+    <!-- Messages -->
     <main class="flex-grow-1">
-       {% if messages %}
-    <div class="container mt-3" style="max-width: 1000px;">
-      {% for message in messages %}
-        <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
-          {{ message }}
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      {% if messages %}
+        <div class="container mt-3" style="max-width: 1000px;">
+          {% for message in messages %}
+            <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+              {{ message }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          {% endfor %}
         </div>
-      {% endfor %}
-    </div>
-  {% endif %}
+      {% endif %}
+
       {% block content %}{% endblock %}
     </main>
 
     <!-- Footer -->
-<footer class="py-3 border-top" style="background-color: #3a2f29; color: #f5f1eb">
-  <div class="container">
-    <div class="d-flex flex-column align-items-center justify-content-center">
-      <!-- Social icons  -->
-      <div class="mb-2">
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="me-3 text-decoration-none" style="color: #f5f1eb; font-size: 1.5rem;">
-          <i class="fa-brands fa-instagram"></i>
-        </a>
-        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="me-3 text-decoration-none" style="color: #f5f1eb; font-size: 1.5rem;">
-          <i class="fa-brands fa-facebook-f"></i>
-        </a>
-        <a href="https://x.com/" target="_blank" rel="noopener noreferrer" class="text-decoration-none" style="color: #f5f1eb; font-size: 1.5rem;">
-          <i class="fa-brands fa-x-twitter"></i>
-        </a>
+    <footer class="py-3 border-top" style="background-color: #3a2f29; color: #f5f1eb">
+      <div class="container text-center">
+        <div class="mb-2">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="me-3 text-decoration-none" style="color: #f5f1eb; font-size: 1.5rem;">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="me-3 text-decoration-none" style="color: #f5f1eb; font-size: 1.5rem;">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://x.com/" target="_blank" rel="noopener" class="text-decoration-none" style="color: #f5f1eb; font-size: 1.5rem;">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+        </div>
+        <div class="small">
+          &copy; {% now "Y" %} Easy Eats Kitchen. All rights reserved.
+        </div>
       </div>
-
-      <!-- Copyright -->
-      <div class="small text-center">
-        &copy; {% now "Y" %} Easy Eats Kitchen. All rights reserved.
-      </div>
-    </div>
-  </div>
-</footer>
+    </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>

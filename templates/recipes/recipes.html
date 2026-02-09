@@ -22,14 +22,14 @@
         aria-label="Search recipes"
         value="{{ q|default:'' }}"
       >
-      <button
-        class="btn btn-search"
-        type="submit"
-      >
+      <button class="btn btn-search" type="submit">
         <i class="fa-solid fa-search me-1"></i> Search
       </button>
       {% if q %}
-        <a href="{% if category %}{% url 'recipes:recipes_by_category' category.slug %}{% else %}{% url 'recipes:recipes_list' %}{% endif %}" class="btn btn-outline-secondary">
+        <a
+          href="{% if category %}{% url 'recipes:recipes_by_category' category.slug %}{% else %}{% url 'recipes:recipes_list' %}{% endif %}"
+          class="btn btn-outline-secondary"
+        >
           Clear
         </a>
       {% endif %}
@@ -61,20 +61,19 @@
               aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}"
               aria-controls="collapse-{{ r.id }}"
             >
-              <div class="d-flex flex-column flex-md-row w-100 align-items-start align-items-md-center">
-                <div>
+              <span class="d-flex flex-column flex-md-row w-100 align-items-start align-items-md-center">
+                <span>
                   <span class="fw-semibold d-block">{{ r.title }}</span>
-                  <small class="text-muted">
-                    by {{ r.owner.username }}
-                  </small>
-                </div>
-              </div>
+                  <small class="text-muted">by {{ r.owner.username }}</small>
+                </span>
+              </span>
             </button>
           </h2>
 
           <div
             id="collapse-{{ r.id }}"
             class="accordion-collapse collapse {% if forloop.first %}show{% endif %}"
+            role="region"
             aria-labelledby="heading-{{ r.id }}"
             data-bs-parent="#recipesAccordion"
           >
@@ -134,5 +133,4 @@
     </div>
   {% endif %}
 </div>
-
 {% endblock %}

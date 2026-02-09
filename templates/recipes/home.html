@@ -6,29 +6,29 @@
 
   <!-- Search bar -->
   <form
-  class="d-flex justify-content-center mb-4"
-  role="search"
-  method="get"
-  action="{% url 'recipes:recipes_list' %}"
-  style="max-width: 600px; margin: 0 auto"
->
-  <div class="input-group">
-    <input
-      type="text"
-      name="q"
-      class="form-control form-control-lg"
-      placeholder="Search recipes"
-      value="{{ q|default:'' }}"
-    />
-    <button
-      class="btn btn-lg"
-      type="submit"
-      style="background-color: #3a2f29; color: #f5f1eb; border: none"
-    >
-      Search
-    </button>
-  </div>
-</form>
+    class="d-flex justify-content-center mb-4"
+    role="search"
+    method="get"
+    action="{% url 'recipes:recipes_list' %}"
+    style="max-width: 600px; margin: 0 auto"
+  >
+    <div class="input-group">
+      <input
+        type="text"
+        name="q"
+        class="form-control form-control-lg"
+        placeholder="Search recipes"
+        value="{{ q|default:'' }}"
+      >
+      <button
+        class="btn btn-lg"
+        type="submit"
+        style="background-color: #3a2f29; color: #f5f1eb; border: none"
+      >
+        Search
+      </button>
+    </div>
+  </form>
 
   <!-- Welcome card -->
   <div class="d-flex justify-content-center">
@@ -63,7 +63,7 @@
               src="{% static 'images/category-15min.webp' %}"
               alt="15 min meals"
               class="img-fluid category-img rounded-circle mb-2"
-            />
+            >
             <span class="category-name">15 min meals</span>
           </div>
         </a>
@@ -71,13 +71,16 @@
 
       <!-- Meat -->
       <div class="col-6 col-md-3">
-        <a href="{% url 'recipes:recipes_by_category' 'meat' %}" class="text-decoration-none text-dark">
+        <a
+          href="{% url 'recipes:recipes_by_category' 'meat' %}"
+          class="text-decoration-none text-dark"
+        >
           <div class="d-flex flex-column align-items-center">
             <img
               src="{% static 'images/category-meat.webp' %}"
               alt="Meat"
               class="img-fluid category-img rounded-circle mb-2"
-            />
+            >
             <span class="category-name">Meat</span>
           </div>
         </a>
@@ -85,13 +88,16 @@
 
       <!-- Fish -->
       <div class="col-6 col-md-3">
-        <a href="{% url 'recipes:recipes_by_category' 'fish' %}" class="text-decoration-none text-dark">
+        <a
+          href="{% url 'recipes:recipes_by_category' 'fish' %}"
+          class="text-decoration-none text-dark"
+        >
           <div class="d-flex flex-column align-items-center">
             <img
               src="{% static 'images/category-fish.webp' %}"
               alt="Fish"
               class="img-fluid category-img rounded-circle mb-2"
-            />
+            >
             <span class="category-name">Fish</span>
           </div>
         </a>
@@ -99,13 +105,16 @@
 
       <!-- Vegetarian -->
       <div class="col-6 col-md-3">
-        <a href="{% url 'recipes:recipes_by_category' 'vegetarian' %}" class="text-decoration-none text-dark">
+        <a
+          href="{% url 'recipes:recipes_by_category' 'vegetarian' %}"
+          class="text-decoration-none text-dark"
+        >
           <div class="d-flex flex-column align-items-center">
             <img
               src="{% static 'images/category-veg.webp' %}"
               alt="Vegetarian"
               class="img-fluid category-img rounded-circle mb-2"
-            />
+            >
             <span class="category-name">Vegetarian</span>
           </div>
         </a>
