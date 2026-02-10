@@ -702,9 +702,6 @@ The application provides full CRUD (Create, Read, Update, Delete) functionality 
 
 ## Testing
 
-[Back to contents](#contents)
-
----
 ### Automated Testing
 
 Automated testing was implemented using Django’s built-in testing framework.
@@ -763,11 +760,20 @@ This command displays individual test cases and confirms that all components of 
 
 ### Code Validation
 
-[Back to contents](#contents)
-
----
-
 #### HTML
+
+All major templates were tested using the  
+[W3C HTML Validator](https://validator.w3.org/)  
+to ensure valid, semantic HTML markup and accessibility compliance.
+
+**The following pages were validated with no errors:**
+
+- [Home page](docs/home-html-validator-easy-eats.png)
+- [Recipes page](docs/recipes-html-validator-easy-eats.png)
+- [Category page](docs/category-html-validator-easy-eats.png)
+- [My Recipes page](docs/my-recipes-html-validator-easy-eats.png)
+- [Login page](docs/login-html-validator-easy-eats.png)
+- [Register page](docs/register-html-validator-easy-eats.png)
 
 
 [Back to contents](#contents)
@@ -776,13 +782,12 @@ This command displays individual test cases and confirms that all components of 
 
 #### CSS
 
+CSS was tested using the [W3C CSS Validator (Jigsaw)](https://jigsaw.w3.org/css-validator/)  
+to ensure valid syntax, consistent styling, and cross-browser compatibility.
 
-[Back to contents](#contents)
+**The following CSS was validated with no errors:**
 
----
-
-#### JavaScript
-
+- [Custom CSS](docs/css_validator_easy_eats.png)
 
 
 [Back to contents](#contents)
