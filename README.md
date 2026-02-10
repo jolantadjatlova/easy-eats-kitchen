@@ -669,7 +669,6 @@ The application provides full CRUD (Create, Read, Update, Delete) functionality 
 | [VS Code](https://code.visualstudio.com/) | Write, edit, and organise all project code. | Tool |
 | [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) | Structure page content and templates. | Language |
 | [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) | Style the user interface and control layout and presentation. | Language |
-| [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) | Enhance interactivity and user experience. | Language |
 | [Python](https://www.python.org/) | Implement backend logic, views, and data handling. | Language |
 | [Django](https://www.djangoproject.com/) | Backend framework used to build the full-stack application. | Framework |
 | [Django Allauth](https://django-allauth.readthedocs.io/en/latest/) | Handle user authentication and account management. | Library |
@@ -787,6 +786,11 @@ to ensure valid syntax, consistent styling, and cross-browser compatibility.
 **The following CSS was validated with no errors:**
 
 - [Custom CSS](docs/css_validator_easy_eats.png)
+
+#### JavaScript
+
+No custom JavaScript was written for this project.  
+All interactive behaviour is provided by Bootstrap’s built-in JavaScript components.
 
 
 [Back to contents](#contents)
