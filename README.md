@@ -75,7 +75,6 @@ The application focuses on clean UX design, accessibility, and secure authentica
   - [Learning Help and Resources](#learning-help-and-resources)
   - [Images](#images-1)
 
-- [Final Tidy-Up](#final-tidy-up)
 
 ## UX
 ### The 5 Planes of UX
@@ -1018,13 +1017,10 @@ Forking the GitHub repository allows you to create a duplicate of a local reposi
 
 ## Credits
 
-[Back to contents](#contents)
-
----
-
 ### Feedback, Advice and Support
 
-
+- Richey Malhotra – Code Institute tutor, for guidance and feedback throughout the project  
+- Peer support and discussion within the Code Institute Slack community
 
 [Back to contents](#contents)
 
@@ -1032,7 +1028,14 @@ Forking the GitHub repository allows you to create a duplicate of a local reposi
 
 ### Learning Help and Resources
 
-
+- [Code Institute](https://codeinstitute.net/) – Full Stack Web Development course materials and project guidance  
+- [Django Documentation](https://docs.djangoproject.com/en/4.2/) – Django framework reference and best practices  
+- [Django Allauth Documentation](https://django-allauth.readthedocs.io/en/latest/) – Authentication and account management  
+- [Real Python](https://realpython.com/) – Python and Django tutorials and explanations  
+- [W3Schools](https://www.w3schools.com/) – Syntax reference and examples  
+- [Stack Overflow](https://stackoverflow.com/) – Community knowledge for troubleshooting and debugging  
+- [Heroku Documentation](https://devcenter.heroku.com/) – Deployment and configuration guidance  
+- [Cloudinary Documentation](https://cloudinary.com/documentation) – Media storage and delivery
 
 [Back to contents](#contents)
 
@@ -1040,14 +1043,11 @@ Forking the GitHub repository allows you to create a duplicate of a local reposi
 
 ### Images
 
-
+- The homepage background image and category images (*15 Min Meals*, *Meat*, *Fish*, *Vegetarian*) were **AI-generated using [ChatGPT](https://chatgpt.com/)** to maintain a consistent visual style.
+- Recipe images are optional and can be uploaded by authenticated users; these images are stored and served using **[Cloudinary](https://cloudinary.com/)**.
+- Images were optimised for performance using **[Squoosh](https://squoosh.app/)**.
+- All images include descriptive `alt` attributes to support accessibility.
 
 [Back to contents](#contents)
 
 ---
-
-## Final Tidy-Up
-
-
-
-[Back to contents](#contents)
